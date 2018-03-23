@@ -2,7 +2,9 @@
   --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
   --color-red: linear-gradient(to top right, #F54F37, #F62722);
   --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
-  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE); }
+  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --btn-start: #50D45C;
+  --btn-strict: #F02821; }
 
 html {
   box-sizing: border-box; }
@@ -64,3 +66,17 @@ body {
       background-image: var(--color-blue);
       border-top: .75rem solid #333;
       border-left: .75rem solid #333; }
+
+.btn {
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10rem;
+  outline: none;
+  transition: all .1s; }
+  .btn:active {
+    transform: scale(0.95); }
+  .btn--start {
+    background: var(--btn-start); }
+  .btn--strict {
+    background: var(--btn-strict); }
