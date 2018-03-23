@@ -19,7 +19,8 @@ html {
 *:after {
   margin: 0;
   padding: 0;
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  outline: none; }
 
 body {
   height: 100%;
@@ -70,7 +71,8 @@ body {
     display: flex;
     flex-wrap: wrap; }
   .game__button {
-    width: 50%; }
+    width: 50%;
+    border: none; }
     .game__button#green {
       background: var(--color-green);
       border-right: .75rem solid #333;
@@ -101,7 +103,6 @@ body {
   width: 2rem;
   height: 2rem;
   border-radius: 10rem;
-  outline: none;
   transition: all .1s; }
   .btn:active {
     transform: scale(0.95); }

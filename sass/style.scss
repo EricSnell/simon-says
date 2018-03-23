@@ -13,6 +13,9 @@
   --btn-strict: #F02821;
 }
 
+// V2 style as Google Chrome logo :D 
+
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -24,6 +27,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  outline: none;
 }
 
 body {
@@ -88,6 +92,7 @@ body {
 
   &__button {
     width: 50%;
+    border: none;
 
     &#green {
       background: var(--color-green);
@@ -140,7 +145,6 @@ body {
   width: 2rem;
   height: 2rem;
   border-radius: 10rem;
-  outline: none;
   transition: all .1s;
 
   &:active {

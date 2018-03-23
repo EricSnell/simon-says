@@ -12,7 +12,7 @@
 <body>
 
   <!-- test markup for functionality -->
-  <div class="game">
+  <div class="game" id="game">
     <section class="game__menu">
       <h1 class="game__header">Simon&reg;</h1>
       <div class="game__counter" id="counter">0</div>
@@ -20,11 +20,11 @@
       <button class="btn btn--strict" id="strict-btn"></button>
     </section>
 
-    <section class="game__buttons">
-      <div class="game__button" id="green"></div>
-      <div class="game__button" id="red"></div>
-      <div class="game__button" id="yellow"></div>
-      <div class="game__button" id="blue"></div>
+    <section class="game__buttons" id="game-btns">
+      <button class="game__button" id="green" value="green"></button>
+      <button class="game__button" id="red" value="red"></button>
+      <button class="game__button" id="yellow" value="yellow"></button>
+      <button class="game__button" id="blue" value="blue"></button>
     </section>
   </div>
 
