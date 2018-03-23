@@ -28,7 +28,8 @@
   ** newGame = reset all state values and execute game
   ** generateRandomColor = choose random color out of array of colors and push that to state
   ** playSequence = set interval to cycle through sequence array, executing highlightButton on each
-  ** highlightButton = play sound & add active class on the element that corresponds to the array item,
+  ** playSound = plays sound that corresponds to color value
+  ** highlightButton = adds active class on the element that corresponds to the array item,
       then remove class using setTimeout (time is ?half? of array sequence interval time)
   ** 
   */
