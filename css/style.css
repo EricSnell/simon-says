@@ -1,12 +1,17 @@
 :root {
-  --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
-  --color-red: linear-gradient(to top right, #F54F37, #F62722);
-  --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
-  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
+  --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
+  --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
+  --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green: #4b7a51;
+  --color-red: #a52b29;
+  --color-yellow: #b1ad46;
+  --color-blue: #29699e;
   --btn-start: #50D45C;
   --btn-strict: #F02821; }
 
 html {
+  height: 100%;
   box-sizing: border-box; }
 
 *,
@@ -17,6 +22,7 @@ html {
   box-sizing: inherit; }
 
 body {
+  height: 100%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%; }
 
@@ -66,21 +72,29 @@ body {
   .game__button {
     width: 50%; }
     .game__button#green {
-      background-image: var(--color-green);
+      background: var(--color-green);
       border-right: .75rem solid #333;
       border-bottom: .75rem solid #333; }
+      .game__button#green:active, .game__button#green.active {
+        background: var(--color-green-active); }
     .game__button#red {
-      background-image: var(--color-red);
+      background: var(--color-red);
       border-left: .75rem solid #333;
       border-bottom: .75rem solid #333; }
+      .game__button#red:active, .game__button#red.active {
+        background: var(--color-red-active); }
     .game__button#yellow {
-      background-image: var(--color-yellow);
+      background: var(--color-yellow);
       border-top: .75rem solid #333;
       border-right: .75rem solid #333; }
+      .game__button#yellow:active, .game__button#yellow.active {
+        background: var(--color-yellow-active); }
     .game__button#blue {
-      background-image: var(--color-blue);
+      background: var(--color-blue);
       border-top: .75rem solid #333;
       border-left: .75rem solid #333; }
+      .game__button#blue:active, .game__button#blue.active {
+        background: var(--color-blue-active); }
 
 .btn {
   border: none;

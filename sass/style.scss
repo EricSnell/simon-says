@@ -1,13 +1,20 @@
 :root {
-  --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
-  --color-red: linear-gradient(to top right, #F54F37, #F62722);
-  --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
-  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
+  --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
+  --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
+  --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
+
+  --color-green: rgb(75, 122, 81);
+  --color-red: rgb(165, 43, 41);
+  --color-yellow: rgb(177, 173, 70);
+  --color-blue: rgb(41, 105, 158);
+
   --btn-start: #50D45C;
   --btn-strict: #F02821;
 }
 
 html {
+  height: 100%;
   box-sizing: border-box;
 }
 
@@ -20,6 +27,7 @@ html {
 }
 
 body {
+  height: 100%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%; // 1rem = 10px
 }
@@ -64,7 +72,6 @@ body {
     width: 100%;
     background: #333;
     height: 3.4rem;
-
   }
 
   &__counter {
@@ -83,27 +90,47 @@ body {
     width: 50%;
 
     &#green {
-      background-image: var(--color-green);
+      background: var(--color-green);
       border-right: .75rem solid #333;
       border-bottom: .75rem solid #333;
+      
+      &:active,
+      &.active {
+        background: var(--color-green-active);   
+      }
     }
     
     &#red {
-      background-image: var(--color-red);
+      background: var(--color-red);
       border-left: .75rem solid #333;
       border-bottom: .75rem solid #333;
+      
+      &:active,
+      &.active {
+        background: var(--color-red-active);
+      }
     }
     
     &#yellow {
-      background-image: var(--color-yellow);
+      background: var(--color-yellow);
       border-top: .75rem solid #333;
       border-right: .75rem solid #333;
+      
+      &:active,
+      &.active {
+        background: var(--color-yellow-active);
+      }
     }
     
     &#blue {
-      background-image: var(--color-blue);
+      background: var(--color-blue);
       border-top: .75rem solid #333;
       border-left: .75rem solid #333;
+      
+      &:active,
+      &.active {
+        background: var(--color-blue-active);
+      }
     }
   }
 }
