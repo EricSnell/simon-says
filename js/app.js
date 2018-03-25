@@ -10,19 +10,21 @@
   const strictBtn = document.getElementById('strict-btn');
   const counter = document.getElementById('counter');
 
+  // State
+  let state = {
+    pattern: [],  // holds the sequence of colors
+    clicks: 0,    // number of clicks the user is on (use number as array index when comparing)
+    strict: false,
+    counter: 0,   // set to length of pattern
+    intervalSpeed: 1000, // 1 second between sequence
+    userTurn: false
+  }
+
   // Add Event Listeners
   startBtn.addEventListener('click', newGame);
   strictBtn.addEventListener('click', toggleStrictMode);
   buttons.addEventListener('click', play);
 
-  /* STATE
-  ** Array that will hold the sequence of colors
-  ** Strict mode (boolean)
-  ** Number of clicks the user is on (use number as array index when comparing)
-  ** Counter (value will be length of button sequence array);
-  ** Speed of interval between each button sequence (milliseconds)
-  ** Players turn indicator (boolean)
-  */
 
   /* FUNCTIONS
   ** newGame = reset all state values and execute game
