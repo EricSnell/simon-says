@@ -25,7 +25,6 @@
   strictBtn.addEventListener('click', toggleStrictMode);
   buttons.addEventListener('click', play);
 
-
   /* FUNCTIONS
   ** newGame = reset all state values and execute game
   ** generateRandomColor = choose random color out of array of colors and push that to state
@@ -35,4 +34,33 @@
       then remove class using setTimeout (time is ?half? of array sequence interval time)
   ** 
   */
+
+  function newGame() {
+    setInitialState();
+
+  }
+
+  function toggleStrictMode() {
+    const toggle = !state.strict;
+    updateState({ strict: toggle });
+  }
+
+  function generateRandomColor() {
+    const colors = ['green', 'red', 'yellow', 'blue'];
+    const random = Math.floor((Math.random() * colors.length - 1) + 1);
+    return colors[random];
+  }
+
+
+
+
+
+  function updateState(props = {}) {
+    state = Object.assign({}, state, props);
+  }
+
+  function setInitialState() {
+    updateState();
+  }
+
 })();
