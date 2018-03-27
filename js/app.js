@@ -10,6 +10,8 @@
   const strictBtn = document.getElementById('strict-btn');
   const counter = document.getElementById('counter');
 
+  let patternInterval; // will store pattern interval function (named so we can clear later)
+
   // State
   let state = {
     pattern: [],  // holds the sequence of colors
@@ -37,7 +39,10 @@
 
   function newGame() {
     setInitialState();
-
+    const newColor = [generateRandomColor()];
+    updateState({ pattern: state.pattern.concat(newColor) });
+    console.log(state.pattern);
+    playSequence();
   }
 
   function toggleStrictMode() {
@@ -47,10 +52,20 @@
 
   function generateRandomColor() {
     const colors = ['green', 'red', 'yellow', 'blue'];
-    const random = Math.floor((Math.random() * colors.length - 1) + 1);
+    const random = Math.floor(Math.random() * colors.length);
     return colors[random];
   }
 
+  function playSequence() {
+    let counter = 0;
+    while (counter < state.pattern.length) {
+      patternInterval = setInterval(() => {
+        console.log(state.pattern[color]);
+      }, 1000);
+      counter += 1;
+    }
+    clearInterval(patternInterval);
+  }
 
 
 
