@@ -10,8 +10,6 @@
   const strictBtn = document.getElementById('strict-btn');
   const counter = document.getElementById('counter');
 
-  let patternInterval; // will store pattern interval function (named so we can clear later)
-
   // State
   let state = {
     pattern: [],  // holds the sequence of colors
@@ -56,15 +54,24 @@
     return colors[random];
   }
 
-  function playSequence(counter) {
-    if (counter < state.pattern.length) {
+  function playSequence(count) {
+    if (count < state.pattern.length) {
       setTimeout(() => {
-        console.log(state.pattern[counter]);
-        playSequence(counter + 1);
-      }, 1000)
+        const color = state.pattern[count];
+        highlightButton(color);
+        playSequence(count + 1);
+      }, state.intervalSpeed);
     } else {
-      console.log('done');
+      console.log('PATTERN FINISHED PLAYING - USERS TURN');
     }
+  }
+
+  function highlightButton(color) {
+    const btn = document.getElementById(color);
+    btn.classList.add('active');
+    setTimeout(() => {
+      btn.classList.remove('active');
+    }, state.intervalSpeed / 2);
   }
 
 
