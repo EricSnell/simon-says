@@ -42,7 +42,7 @@
     const newColor = [generateRandomColor()];
     updateState({ pattern: state.pattern.concat(newColor) });
     console.log(state.pattern);
-    playSequence();
+    playSequence(0);
   }
 
   function toggleStrictMode() {
@@ -56,15 +56,15 @@
     return colors[random];
   }
 
-  function playSequence() {
-    let counter = 0;
-    while (counter < state.pattern.length) {
-      patternInterval = setInterval(() => {
-        console.log(state.pattern[color]);
-      }, 1000);
-      counter += 1;
+  function playSequence(counter) {
+    if (counter < state.pattern.length) {
+      setTimeout(() => {
+        console.log(state.pattern[counter]);
+        playSequence(counter + 1);
+      }, 1000)
+    } else {
+      console.log('done');
     }
-    clearInterval(patternInterval);
   }
 
 
