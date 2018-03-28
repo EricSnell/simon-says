@@ -56,6 +56,8 @@
 
   function playSequence(count) {
     if (count < state.pattern.length) {
+      updateState({ userTurn: false });
+      toggleBoardInteractivity();
       setTimeout(() => {
         const color = state.pattern[count];
         highlightButton(color);
@@ -63,6 +65,9 @@
       }, state.intervalSpeed);
     } else {
       console.log('PATTERN FINISHED PLAYING - USERS TURN');
+      updateState({ userTurn: true });
+      toggleBoardInteractivity();
+
     }
   }
 
@@ -74,8 +79,17 @@
     }, state.intervalSpeed / 2);
   }
 
+  function toggleBoardInteractivity() {
+    if (state.userTurn) {
+      buttons.addEventListener('click', play);
+    } else {
+      buttons.removeEventListener('click', play);
+    }
+  }
 
-
+  function play() {
+    console.log('user pushes button');
+  }
 
   function updateState(props = {}) {
     state = Object.assign({}, state, props);
