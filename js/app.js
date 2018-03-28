@@ -2,6 +2,7 @@
   'use strict'
   // DOM elements
   const buttons = document.getElementById('game-btns');
+  const buttonArr = document.getElementsByClassName('game__button');
   const greenBtn = document.getElementById('green');
   const redBtn = document.getElementById('red');
   const yellowBtn = document.getElementById('yellow');
@@ -82,8 +83,14 @@
   function toggleBoardInteractivity() {
     if (state.userTurn) {
       buttons.addEventListener('click', play);
+      Array.prototype.forEach.call(buttonArr, (btn) => {
+        btn.disabled = false;
+      });
     } else {
       buttons.removeEventListener('click', play);
+      Array.prototype.forEach.call(buttonArr, (btn) => {
+        btn.disabled = true;
+      });
     }
   }
 

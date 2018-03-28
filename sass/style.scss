@@ -99,7 +99,7 @@ body {
       border-right: .75rem solid #333;
       border-bottom: .75rem solid #333;
       
-      &:active,
+      &:enabled:active,
       &.active {
         background: var(--color-green-active);   
       }
@@ -110,7 +110,7 @@ body {
       border-left: .75rem solid #333;
       border-bottom: .75rem solid #333;
       
-      &:active,
+      &:enabled:active,
       &.active {
         background: var(--color-red-active);
       }
@@ -121,7 +121,7 @@ body {
       border-top: .75rem solid #333;
       border-right: .75rem solid #333;
       
-      &:active,
+      &:enabled:active,
       &.active {
         background: var(--color-yellow-active);
       }
@@ -132,7 +132,7 @@ body {
       border-top: .75rem solid #333;
       border-left: .75rem solid #333;
       
-      &:active,
+      &:enabled:active,
       &.active {
         background: var(--color-blue-active);
       }
