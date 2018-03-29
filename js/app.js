@@ -1,15 +1,18 @@
 (() => {
   'use strict'
   // DOM elements
-  const buttons = document.getElementById('game-btns');
-  const buttonArr = document.getElementsByClassName('game__button');
-  const greenBtn = document.getElementById('green');
-  const redBtn = document.getElementById('red');
-  const yellowBtn = document.getElementById('yellow');
-  const blueBtn = document.getElementById('blue');
-  const startBtn = document.getElementById('start-btn');
-  const strictBtn = document.getElementById('strict-btn');
-  const counter = document.getElementById('counter');
+  const buttonsNodeList = document.getElementsByClassName('game__button');
+  const $buttons = document.getElementById('game-btns');
+  const $greenBtn = document.getElementById('green');
+  const $redBtn = document.getElementById('red');
+  const $yellowBtn = document.getElementById('yellow');
+  const $blueBtn = document.getElementById('blue');
+  const $startBtn = document.getElementById('start-btn');
+  const $strictBtn = document.getElementById('strict-btn');
+  const $counter = document.getElementById('counter');
+
+  // For testing purposes
+  const $log = document.getElementById('dev-log')
 
   // State
   let state = {
@@ -22,9 +25,9 @@
   }
 
   // Add Event Listeners
-  startBtn.addEventListener('click', newGame);
-  strictBtn.addEventListener('click', toggleStrictMode);
-  buttons.addEventListener('click', play);
+  $startBtn.addEventListener('click', newGame);
+  $strictBtn.addEventListener('click', toggleStrictMode);
+  $buttons.addEventListener('click', play);
 
   /* FUNCTIONS
   ** newGame = reset all state values and execute game
@@ -40,7 +43,7 @@
     setInitialState();
     const newColor = [generateRandomColor()];
     updateState({ pattern: state.pattern.concat(newColor) });
-    console.log(state.pattern);
+    $log.innerHTML = state.pattern;
     playSequence(0);
   }
 
@@ -58,7 +61,7 @@
   function playSequence(count) {
     if (count < state.pattern.length) {
       updateState({ userTurn: false });
-      toggleBoardInteractivity();
+      toggleInteractive();
       setTimeout(() => {
         const color = state.pattern[count];
         highlightButton(color);
@@ -67,7 +70,7 @@
     } else {
       console.log('PATTERN FINISHED PLAYING - USERS TURN');
       updateState({ userTurn: true });
-      toggleBoardInteractivity();
+      toggleInteractive();
 
     }
   }
@@ -80,15 +83,15 @@
     }, state.intervalSpeed / 2);
   }
 
-  function toggleBoardInteractivity() {
+  function toggleInteractive() {
     if (state.userTurn) {
-      buttons.addEventListener('click', play);
-      Array.prototype.forEach.call(buttonArr, (btn) => {
+      $buttons.addEventListener('click', play);
+      Array.prototype.forEach.call(buttonsNodeList, (btn) => {
         btn.disabled = false;
       });
     } else {
-      buttons.removeEventListener('click', play);
-      Array.prototype.forEach.call(buttonArr, (btn) => {
+      $buttons.removeEventListener('click', play);
+      Array.prototype.forEach.call(buttonsNodeList, (btn) => {
         btn.disabled = true;
       });
     }
