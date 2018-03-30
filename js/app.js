@@ -3,10 +3,6 @@
   // DOM elements
   const buttonsNodeList = document.getElementsByClassName('game__button');
   const $buttons = document.getElementById('game-btns');
-  const $greenBtn = document.getElementById('green');
-  const $redBtn = document.getElementById('red');
-  const $yellowBtn = document.getElementById('yellow');
-  const $blueBtn = document.getElementById('blue');
   const $startBtn = document.getElementById('start-btn');
   const $strictBtn = document.getElementById('strict-btn');
   const $counter = document.getElementById('counter');
@@ -17,7 +13,7 @@
   // State
   let state = {
     pattern: [],  // holds the sequence of colors
-    correct: 0,    // number of clicks the user is on (use number as array index when comparing)
+    correct: 1,    // number of clicks the user is on (use number as array index when comparing)
     strict: false,
     counter: 0,   // set to length of pattern
     intervalSpeed: 1000, // 1 second between sequence
@@ -31,16 +27,12 @@
 
   /* FUNCTIONS
   ** newGame = reset all state values and execute game
-  ** generateRandomColor = choose random color out of array of colors and push that to state
-  ** playSequence = set interval to cycle through sequence array, executing highlightButton on each
   ** playSound = plays sound that corresponds to color value
-  ** highlightButton = adds active class on the element that corresponds to the array item,
-      then remove class using setTimeout (time is ?half? of array sequence interval time)
-  ** 
   */
 
   function newGame() {
     setInitialState();
+    resetDisplay();
     playSequence(0);
   }
 
@@ -71,7 +63,7 @@
         playSequence(count + 1);
       }, state.intervalSpeed);
     } else {
-      console.log('PATTERN FINISHED PLAYING - USERS TURN');
+      console.log('********USERS TURN********');
       updateState({ userTurn: true });
       toggleInteractive();
     }
@@ -106,10 +98,10 @@
       const addToCounter = state.counter + 1;
       updateState({ counter: addToCounter });
       if (state.counter >= state.pattern.length) {
-        console.log('COMPUTERS TURN');
-        updateState({ counter: 0, correct: state.correct + 1 });
-        $counter.innerHTML = state.correct;
+        console.log('*******COMPUTERS TURN*********');
+        updateState({ counter: 0 });
         addColor();
+        $counter.innerHTML = state.pattern.length;
         playSequence(0);
       } else {
         console.log('Keep going...');
@@ -121,9 +113,19 @@
     }
   }
 
+  function resetDisplay() {
+    $counter.innerHTML = state.pattern.length;
+  }
+
   function setInitialState() {
-    updateState();
-    addColor();
+    updateState({
+      pattern: [generateRandomColor()],
+      correct: 1,
+      strict: false,
+      counter: 0,
+      intervalSpeed: 1000,
+      userTurn: false
+    });
   }
 
   function updateState(props = {}) {
