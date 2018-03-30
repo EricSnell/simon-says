@@ -17,7 +17,7 @@
   // State
   let state = {
     pattern: [],  // holds the sequence of colors
-    clicks: 0,    // number of clicks the user is on (use number as array index when comparing)
+    correct: 0,    // number of clicks the user is on (use number as array index when comparing)
     strict: false,
     counter: 0,   // set to length of pattern
     intervalSpeed: 1000, // 1 second between sequence
@@ -41,10 +41,13 @@
 
   function newGame() {
     setInitialState();
+    playSequence(0);
+  }
+
+  function addColor() {
     const newColor = [generateRandomColor()];
     updateState({ pattern: state.pattern.concat(newColor) });
     $log.innerHTML = state.pattern;
-    playSequence(0);
   }
 
   function toggleStrictMode() {
@@ -71,7 +74,6 @@
       console.log('PATTERN FINISHED PLAYING - USERS TURN');
       updateState({ userTurn: true });
       toggleInteractive();
-
     }
   }
 
@@ -97,16 +99,35 @@
     }
   }
 
-  function play() {
-    console.log('user pushes button');
-  }
-
-  function updateState(props = {}) {
-    state = Object.assign({}, state, props);
+  function play(e) {
+    const btn = e.target.value;
+    const isCorrect = btn === state.pattern[state.counter];
+    if (isCorrect) {
+      const addToCounter = state.counter + 1;
+      updateState({ counter: addToCounter });
+      if (state.counter >= state.pattern.length) {
+        console.log('COMPUTERS TURN');
+        updateState({ counter: 0, correct: state.correct + 1 });
+        $counter.innerHTML = state.correct;
+        addColor();
+        playSequence(0);
+      } else {
+        console.log('Keep going...');
+      }
+    } else {
+      console.log('WRONG!!!!');
+      updateState({ counter: 0 });
+      playSequence(0);
+    }
   }
 
   function setInitialState() {
     updateState();
+    addColor();
+  }
+
+  function updateState(props = {}) {
+    state = Object.assign({}, state, props);
   }
 
 })();
