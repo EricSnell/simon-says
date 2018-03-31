@@ -1,5 +1,22 @@
 (() => {
   'use strict'
+
+  const redSound = createSound(440);
+  const greenSound = createSound(800);
+  const blueSound = createSound(200);
+  const yellowSound = createSound(600);
+
+  function createSound(num) {
+    return new Pizzicato.Sound({
+      source: 'wave',
+      options: {
+        frequency: num,
+        volume: 0.1
+      }
+    })
+  }
+
+
   // DOM elements
   const buttonsNodeList = document.getElementsByClassName('game__button');
   const $buttons = document.getElementById('game-btns');
@@ -13,7 +30,6 @@
   // State
   let state = {
     pattern: [],  // holds the sequence of colors
-    correct: 1,    // number of clicks the user is on (use number as array index when comparing)
     strict: false,
     counter: 0,   // set to length of pattern
     intervalSpeed: 1000, // 1 second between sequence
@@ -26,7 +42,6 @@
   $buttons.addEventListener('click', play);
 
   /* FUNCTIONS
-  ** newGame = reset all state values and execute game
   ** playSound = plays sound that corresponds to color value
   */
 
@@ -63,7 +78,6 @@
         playSequence(count + 1);
       }, state.intervalSpeed);
     } else {
-      console.log('********USERS TURN********');
       updateState({ userTurn: true });
       toggleInteractive();
     }
@@ -75,6 +89,10 @@
     setTimeout(() => {
       btn.classList.remove('active');
     }, state.intervalSpeed / 2);
+  }
+
+  function playSound(color) {
+
   }
 
   function toggleInteractive() {
@@ -98,7 +116,6 @@
       const addToCounter = state.counter + 1;
       updateState({ counter: addToCounter });
       if (state.counter >= state.pattern.length) {
-        console.log('*******COMPUTERS TURN*********');
         updateState({ counter: 0 });
         addColor();
         $counter.innerHTML = state.pattern.length;
@@ -107,10 +124,8 @@
         console.log('Keep going...');
       }
     } else if (state.strict) {
-      console.log('strict>>>WRONG!!! RESET');
       newGame();
     } else {
-      console.log('WRONG!!!!');
       updateState({ counter: 0 });
       playSequence(0);
     }
@@ -123,7 +138,6 @@
   function setInitialState() {
     updateState({
       pattern: [generateRandomColor()],
-      correct: 1,
       counter: 0,
       intervalSpeed: 1000,
       userTurn: false
