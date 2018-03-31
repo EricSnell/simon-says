@@ -1,21 +1,29 @@
 (() => {
   'use strict'
 
-  const redSound = createSound(440);
-  const greenSound = createSound(800);
-  const blueSound = createSound(200);
-  const yellowSound = createSound(600);
+  const soundA = createSound(200);
+  const soundB = createSound(225);
+  const soundC = createSound(250);
+  const soundD = createSound(275);
+
+  const sounds = {
+    red: soundA,
+    green: soundB,
+    blue: soundC,
+    yellow: soundD
+  }
 
   function createSound(num) {
     return new Pizzicato.Sound({
       source: 'wave',
       options: {
         frequency: num,
-        volume: 0.1
+        attack: 0,
+        release: 0.3,
+        volume: 0.2
       }
     })
   }
-
 
   // DOM elements
   const buttonsNodeList = document.getElementsByClassName('game__button');
@@ -86,13 +94,11 @@
   function highlightButton(color) {
     const btn = document.getElementById(color);
     btn.classList.add('active');
+    sounds[color].play();
     setTimeout(() => {
       btn.classList.remove('active');
+      sounds[color].stop();
     }, state.intervalSpeed / 2);
-  }
-
-  function playSound(color) {
-
   }
 
   function toggleInteractive() {
