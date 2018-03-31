@@ -106,6 +106,9 @@
       } else {
         console.log('Keep going...');
       }
+    } else if (state.strict) {
+      console.log('strict>>>WRONG!!! RESET');
+      newGame();
     } else {
       console.log('WRONG!!!!');
       updateState({ counter: 0 });
@@ -121,7 +124,6 @@
     updateState({
       pattern: [generateRandomColor()],
       correct: 1,
-      strict: false,
       counter: 0,
       intervalSpeed: 1000,
       userTurn: false
