@@ -22,7 +22,17 @@
         release: 0.3,
         volume: 0.2
       }
-    })
+    });
+  }
+
+  function playSound(e) {
+    const color = e.target.value;
+    sounds[color].play();
+  }
+
+  function stopSound(e) {
+    const color = e.target.value;
+    sounds[color].stop();
   }
 
   // DOM elements
@@ -33,14 +43,14 @@
   const $counter = document.getElementById('counter');
 
   // For testing purposes
-  const $log = document.getElementById('dev-log')
+  const $log = document.getElementById('dev-log');
 
   // State
   let state = {
-    pattern: [],  // holds the sequence of colors
+    pattern: [],
     strict: false,
     counter: 0,   // set to length of pattern
-    intervalSpeed: 1000, // 1 second between sequence
+    intervalSpeed: 1000,
     userTurn: false
   }
 
@@ -48,10 +58,8 @@
   $startBtn.addEventListener('click', newGame);
   $strictBtn.addEventListener('click', toggleStrictMode);
   $buttons.addEventListener('click', play);
-
-  /* FUNCTIONS
-  ** playSound = plays sound that corresponds to color value
-  */
+  $buttons.addEventListener('mousedown', playSound)
+  $buttons.addEventListener('mouseup', stopSound);
 
   function newGame() {
     setInitialState();
