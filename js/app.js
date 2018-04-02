@@ -5,12 +5,16 @@
   const soundB = createSound(225);
   const soundC = createSound(250);
   const soundD = createSound(275);
+  const error = createSound(125);
+  const dist = new Pizzicato.Effects.Delay({ gain: 0.6 });
+  error.addEffect(dist);
 
   const sounds = {
     red: soundA,
     green: soundB,
     blue: soundC,
-    yellow: soundD
+    yellow: soundD,
+    error
   }
 
   function createSound(num) {
