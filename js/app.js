@@ -47,25 +47,18 @@
   // For testing purposes
   const $log = document.getElementById('dev-log');
 
-  // State
-  let state = {
-    pattern: [],
-    strict: false,
-    counter: 0,   // set to length of pattern
-    intervalSpeed: 1000,
-    userTurn: false
-  }
+  let state;
 
   // Add Event Listeners
   $startBtn.addEventListener('click', newGame);
   $strictBtn.addEventListener('click', toggleStrictMode);
+  $buttons.addEventListener('mousedown', playSound);
+  $buttons.addEventListener('mouseup', stopSound);
 
   function newGame() {
-    $buttons.addEventListener('click', play);
-    $buttons.addEventListener('mousedown', playSound);
-    $buttons.addEventListener('mouseup', stopSound);
     setInitialState();
-    resetDisplay();
+    toggleInteractive();
+    resetCounterDisplay();
     playSequence(0);
   }
 
@@ -86,14 +79,14 @@
     return colors[random];
   }
 
-  function playSequence(count) {
-    if (count < state.pattern.length) {
+  function playSequence(index) {
+    if (index < state.pattern.length) {
       updateState({ userTurn: false });
       toggleInteractive();
       setTimeout(() => {
-        const color = state.pattern[count];
+        const color = state.pattern[index];
         activateButton(color);
-        playSequence(count + 1);
+        playSequence(index + 1);
       }, state.intervalSpeed);
     } else {
       updateState({ userTurn: true });
@@ -142,9 +135,8 @@
         updateState({ counter: 0 });
         addColor();
         $counter.innerHTML = state.pattern.length;
+        increaseSpeed();
         playSequence(0);
-      } else {
-        console.log('Keep going...');
       }
     } else if (state.strict) {
       alertIncorrect();
@@ -156,7 +148,24 @@
     }
   }
 
-  function resetDisplay() {
+  function increaseSpeed() {
+    const pattern = state.pattern.length;
+    switch (true) {
+      case pattern >= 15:
+        updateState({ intervalSpeed: 250 });
+        break;
+      case pattern >= 10:
+        updateState({ intervalSpeed: 500 });
+        break;
+      case pattern >= 5:
+        updateState({ intervalSpeed: 750 });
+        break;
+      default:
+        break;
+    };
+  }
+
+  function resetCounterDisplay() {
     $counter.innerHTML = state.pattern.length;
   }
 
