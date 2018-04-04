@@ -6,8 +6,6 @@
   const soundC = createSound(250);
   const soundD = createSound(275);
   const error = createSound(125);
-  const dist = new Pizzicato.Effects.Delay({ gain: 0.6 });
-  error.addEffect(dist);
 
   const sounds = {
     red: soundA,
@@ -61,11 +59,11 @@
   // Add Event Listeners
   $startBtn.addEventListener('click', newGame);
   $strictBtn.addEventListener('click', toggleStrictMode);
-  $buttons.addEventListener('click', play);
-  $buttons.addEventListener('mousedown', playSound)
-  $buttons.addEventListener('mouseup', stopSound);
 
   function newGame() {
+    $buttons.addEventListener('click', play);
+    $buttons.addEventListener('mousedown', playSound);
+    $buttons.addEventListener('mouseup', stopSound);
     setInitialState();
     resetDisplay();
     playSequence(0);
@@ -94,7 +92,7 @@
       toggleInteractive();
       setTimeout(() => {
         const color = state.pattern[count];
-        highlightButton(color);
+        activateButton(color);
         playSequence(count + 1);
       }, state.intervalSpeed);
     } else {
@@ -103,7 +101,7 @@
     }
   }
 
-  function highlightButton(color) {
+  function activateButton(color) {
     const btn = document.getElementById(color);
     btn.classList.add('active');
     sounds[color].play();
@@ -111,6 +109,13 @@
       btn.classList.remove('active');
       sounds[color].stop();
     }, state.intervalSpeed / 2);
+  }
+
+  function alertIncorrect() {
+    sounds.error.play();
+    setTimeout(() => {
+      sounds.error.stop()
+    }, 500);
   }
 
   function toggleInteractive() {
@@ -142,8 +147,10 @@
         console.log('Keep going...');
       }
     } else if (state.strict) {
+      alertIncorrect();
       newGame();
     } else {
+      alertIncorrect();
       updateState({ counter: 0 });
       playSequence(0);
     }
