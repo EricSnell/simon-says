@@ -104,7 +104,7 @@
     }, state.intervalSpeed / 2);
   }
 
-  function alertIncorrect() {
+  function errorSound() {
     sounds.error.play();
     setTimeout(() => {
       sounds.error.stop()
@@ -131,7 +131,10 @@
     if (isCorrect) {
       const addToCounter = state.counter + 1;
       updateState({ counter: addToCounter });
-      if (state.counter >= state.pattern.length) {
+      if ((state.counter >= state.pattern.length) && state.pattern.length === 20) {
+        alert('you win!');
+
+      } else if (state.counter >= state.pattern.length) {
         updateState({ counter: 0 });
         addColor();
         $counter.innerHTML = state.pattern.length;
@@ -139,10 +142,10 @@
         playSequence(0);
       }
     } else if (state.strict) {
-      alertIncorrect();
+      errorSound();
       newGame();
     } else {
-      alertIncorrect();
+      errorSound();
       updateState({ counter: 0 });
       playSequence(0);
     }
