@@ -15,6 +15,30 @@
     error
   }
 
+  // DOM elements
+  const buttonsNodeList = document.getElementsByTagName('button');
+  const $buttons = document.getElementById('game-btns');
+  const $startBtn = document.getElementById('start-btn');
+  const $strictBtn = document.getElementById('strict-btn');
+  const $counter = document.getElementById('counter');
+
+  let state;
+
+  // Add Event Listeners
+  $startBtn.addEventListener('click', newGame);
+  $strictBtn.addEventListener('click', toggleStrictMode);
+  $buttons.addEventListener('mousedown', playSound);
+  $buttons.addEventListener('mouseup', stopSound);
+
+  setInitialState();
+
+  function newGame() {
+    setInitialState();
+    toggleInteractive();
+    setCounterDisplay();
+    playSequence(0);
+  }
+
   function createSound(num) {
     return new Pizzicato.Sound({
       source: 'wave',
@@ -37,35 +61,16 @@
     sounds[color].stop();
   }
 
-  // DOM elements
-  const buttonsNodeList = document.getElementsByClassName('game__button');
-  const $buttons = document.getElementById('game-btns');
-  const $startBtn = document.getElementById('start-btn');
-  const $strictBtn = document.getElementById('strict-btn');
-  const $counter = document.getElementById('counter');
-
-  // For testing purposes
-  const $log = document.getElementById('dev-log');
-
-  let state;
-
-  // Add Event Listeners
-  $startBtn.addEventListener('click', newGame);
-  $strictBtn.addEventListener('click', toggleStrictMode);
-  $buttons.addEventListener('mousedown', playSound);
-  $buttons.addEventListener('mouseup', stopSound);
-
-  function newGame() {
-    setInitialState();
-    toggleInteractive();
-    resetCounterDisplay();
-    playSequence(0);
+  function errorSound() {
+    sounds.error.play();
+    setTimeout(() => {
+      sounds.error.stop()
+    }, 500);
   }
 
   function addColor() {
     const newColor = [generateRandomColor()];
     updateState({ pattern: state.pattern.concat(newColor) });
-    $log.innerHTML = state.pattern;
   }
 
   function toggleStrictMode() {
@@ -104,13 +109,6 @@
     }, state.intervalSpeed / 2);
   }
 
-  function errorSound() {
-    sounds.error.play();
-    setTimeout(() => {
-      sounds.error.stop()
-    }, 500);
-  }
-
   function toggleInteractive() {
     if (state.userTurn) {
       $buttons.addEventListener('click', play);
@@ -127,19 +125,16 @@
 
   function play(e) {
     const btn = e.target.value;
-    const isCorrect = btn === state.pattern[state.counter];
+    const isCorrect = (btn === state.pattern[state.counter]);
+    const lastLevel = (state.pattern.length === 20);
+    let patternFinished;
     if (isCorrect) {
-      const addToCounter = state.counter + 1;
-      updateState({ counter: addToCounter });
-      if ((state.counter >= state.pattern.length) && state.pattern.length === 20) {
-        alert('you win!');
-
-      } else if (state.counter >= state.pattern.length) {
-        updateState({ counter: 0 });
-        addColor();
-        $counter.innerHTML = state.pattern.length;
-        increaseSpeed();
-        playSequence(0);
+      increaseCounter();
+      patternFinished = (state.counter >= state.pattern.length);
+      if (patternFinished && lastLevel) {
+        gameWon();
+      } else if (patternFinished) {
+        setNextLevel();
       }
     } else if (state.strict) {
       errorSound();
@@ -151,7 +146,24 @@
     }
   }
 
-  function increaseSpeed() {
+  function gameWon() {
+    console.log('you win!');
+  }
+
+  function setNextLevel() {
+    updateState({ counter: 0 });
+    addColor();
+    setCounterDisplay();
+    setSpeed();
+    playSequence(0);
+  }
+
+  function increaseCounter() {
+    const addToCounter = state.counter + 1;
+    updateState({ counter: addToCounter });
+  }
+
+  function setSpeed() {
     const pattern = state.pattern.length;
     switch (true) {
       case pattern >= 15:
@@ -168,7 +180,7 @@
     };
   }
 
-  function resetCounterDisplay() {
+  function setCounterDisplay() {
     $counter.innerHTML = state.pattern.length;
   }
 
