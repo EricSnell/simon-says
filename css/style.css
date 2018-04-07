@@ -26,13 +26,13 @@ body {
   height: 100%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%;
-  background: #aaa; }
+  background: #333; }
 
 .game {
   border: 1.5rem solid #333;
   width: 35rem;
   height: 35rem;
-  margin: 0 auto;
+  margin: 5rem auto 0;
   position: relative;
   border-radius: 100%;
   overflow: hidden; }
@@ -74,6 +74,8 @@ body {
   .game__button {
     width: 50%;
     border: none; }
+    .game__button:hover {
+      cursor: pointer; }
     .game__button#green {
       background: var(--color-green);
       border-right: .75rem solid #333;

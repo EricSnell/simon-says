@@ -34,7 +34,7 @@ body {
   height: 100%;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 62.5%; // 1rem = 10px
-  background: #aaa;
+  background: #333;
 }
 
 
@@ -42,7 +42,7 @@ body {
   border: 1.5rem solid #333;
   width: 35rem;
   height: 35rem;
-  margin: 0 auto;
+  margin: 5rem auto 0;
   position: relative;
   border-radius: 100%;
   overflow: hidden;
@@ -95,6 +95,9 @@ body {
     width: 50%;
     border: none;
 
+    &:hover {
+      cursor: pointer;
+    }
 
     &#green {
       background: var(--color-green);
