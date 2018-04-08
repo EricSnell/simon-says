@@ -68,6 +68,7 @@
     }, 500);
   }
 
+  // Adds color to pattern sequence
   function addColor() {
     const newColor = [generateRandomColor()];
     updateState({ pattern: state.pattern.concat(newColor) });
@@ -84,6 +85,7 @@
     return colors[random];
   }
 
+  // Cycles through sequence recursively, passing it the current index of the pattern
   function playSequence(index) {
     if (index < state.pattern.length) {
       updateState({ userTurn: false });
@@ -99,6 +101,7 @@
     }
   }
 
+  // Highlights and plays sound associated with button
   function activateButton(color) {
     const btn = document.getElementById(color);
     btn.classList.add('active');
@@ -109,6 +112,7 @@
     }, state.intervalSpeed / 2);
   }
 
+  // Toggles interactivity with the game while sequence and toggles back on when users turn
   function toggleInteractive() {
     if (state.userTurn) {
       $buttons.addEventListener('click', play);
@@ -123,6 +127,7 @@
     }
   }
 
+  // When player interacts with a button
   function play(e) {
     const btn = e.target.value;
     const isCorrect = (btn === state.pattern[state.counter]);
@@ -150,6 +155,7 @@
     console.log('you win!');
   }
 
+  // Runs once user has successfully clicked through current pattern sequence
   function setNextLevel() {
     updateState({ counter: 0 });
     addColor();
@@ -163,6 +169,7 @@
     updateState({ counter: addToCounter });
   }
 
+  // Determines the speed at which the sequence is played back (faster over time)
   function setSpeed() {
     const pattern = state.pattern.length;
     switch (true) {
