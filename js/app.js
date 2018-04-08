@@ -1,28 +1,20 @@
 (() => {
   'use strict'
-
-  const soundA = createSound(200);
-  const soundB = createSound(225);
-  const soundC = createSound(250);
-  const soundD = createSound(275);
-  const error = createSound(125);
-
-  const sounds = {
-    red: soundA,
-    green: soundB,
-    blue: soundC,
-    yellow: soundD,
-    error
-  }
-
   // DOM elements
   const buttonsNodeList = document.getElementsByTagName('button');
   const $buttons = document.getElementById('game-btns');
   const $startBtn = document.getElementById('start-btn');
   const $strictBtn = document.getElementById('strict-btn');
   const $counter = document.getElementById('counter');
-
   let state;
+
+  const sounds = {
+    red: createSound(200),
+    green: createSound(225),
+    blue: createSound(250),
+    yellow: createSound(275),
+    error: createSound(125)
+  }
 
   // Add Event Listeners
   $startBtn.addEventListener('click', newGame);
@@ -32,12 +24,6 @@
 
   setInitialState();
 
-  function newGame() {
-    setInitialState();
-    toggleInteractive();
-    setCounterDisplay();
-    playSequence(0);
-  }
 
   function createSound(num) {
     return new Pizzicato.Sound({
@@ -68,6 +54,13 @@
     }, 500);
   }
 
+  function newGame() {
+    setInitialState();
+    toggleInteractive();
+    setCounterDisplay();
+    playSequence();
+  }
+
   // Adds color to pattern sequence
   function addColor() {
     const newColor = [generateRandomColor()];
@@ -86,20 +79,26 @@
   }
 
   // Cycles through sequence recursively, passing it the current index of the pattern
-  function playSequence(index) {
-    if (index < state.pattern.length) {
-      updateState({ userTurn: false });
-      toggleInteractive();
-      setTimeout(() => {
-        const color = state.pattern[index];
-        activateButton(color);
-        playSequence(index + 1);
-      }, state.intervalSpeed);
-    } else {
+  function playSequence() {
+    return new Promise((resolve) => {
+      for (let i = 1; i <= state.pattern.length; i += 1) {
+        setTimeout(() => {
+          const color = state.pattern[i - 1];
+          activateButton(color);
+        }, i * state.intervalSpeed);
+      }
+    })
+  }
+
+  function computerPlays() {
+    updateState({ userTurn: false });
+    toggleInteractive();
+    playSequence().then(() => {
       updateState({ userTurn: true });
       toggleInteractive();
-    }
+    })
   }
+
 
   // Highlights and plays sound associated with button
   function activateButton(color) {
@@ -147,7 +146,7 @@
     } else {
       errorSound();
       updateState({ counter: 0 });
-      playSequence(0);
+      computerPlays();
     }
   }
 
@@ -161,7 +160,7 @@
     addColor();
     setCounterDisplay();
     setSpeed();
-    playSequence(0);
+    computerPlays();
   }
 
   function increaseCounter() {
@@ -205,3 +204,21 @@
   }
 
 })();
+
+
+
+
+// function playSequence() {
+//   if (index < state.pattern.length) {
+//     updateState({ userTurn: false });
+//     toggleInteractive();
+//     setTimeout(() => {
+//       const color = state.pattern[index];
+//       activateButton(color);
+//       playSequence(index + 1);
+//     }, state.intervalSpeed);
+//   } else {
+//     updateState({ userTurn: true });
+//     toggleInteractive();
+//   }
+// }
