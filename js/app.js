@@ -79,35 +79,26 @@
   }
 
   // Loops through the sequence pattern array, 
-  function playSequence() {
-    return new Promise((resolve) => {
-      for (let currentIndex = 1; currentIndex <= state.pattern.length; currentIndex += 1) {
-        delay(currentIndex * state.intervalSpeed).then(() => {
-          const color = state.pattern[currentIndex - 1];
-          activateButton(color);
-          if (currentIndex === (state.pattern.length)) {
-            resolve();
-          }
-        });
-      }
-    });
-  }
-
-  function delay(sec) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, sec);
-    })
+  function playSequence(index = 0) {
+    if (index < state.pattern.length) {
+      updateState({ userTurn: false });
+      toggleInteractive();
+      setTimeout(() => {
+        const color = state.pattern[index];
+        activateButton(color);
+        playSequence(index + 1);
+      }, state.intervalSpeed);
+    } else {
+      updateState({ userTurn: true });
+      toggleInteractive();
+    }
   }
 
   function computerPlays() {
     updateState({ userTurn: false });
     toggleInteractive();
-    playSequence().then(() => {
-      updateState({ userTurn: true });
-      toggleInteractive();
-    });
+    playSequence()
   }
-
 
   // Highlights and plays sound associated with button
   function activateButton(color) {
@@ -213,21 +204,3 @@
   }
 
 })();
-
-
-
-
-// function playSequence() {
-//   if (index < state.pattern.length) {
-//     updateState({ userTurn: false });
-//     toggleInteractive();
-//     setTimeout(() => {
-//       const color = state.pattern[index];
-//       activateButton(color);
-//       playSequence(index + 1);
-//     }, state.intervalSpeed);
-//   } else {
-//     updateState({ userTurn: true });
-//     toggleInteractive();
-//   }
-// }
