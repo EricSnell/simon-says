@@ -78,7 +78,7 @@
     return colors[random];
   }
 
-  // Loops through the sequence pattern array, 
+  // Recursive operation that cycles through the sequence pattern, activating each button
   function playSequence(index = 0) {
     if (index < state.pattern.length) {
       updateState({ userTurn: false });
