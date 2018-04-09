@@ -13,7 +13,7 @@
     green: createSound(225),
     blue: createSound(250),
     yellow: createSound(275),
-    error: createSound(125)
+    error: createSound(145)
   }
 
   // Add Event Listeners
@@ -58,10 +58,7 @@
     setInitialState();
     toggleInteractive();
     setCounterDisplay();
-    playSequence().then((data) => {
-      updateState({ userTurn: true });
-      toggleInteractive();
-    });
+    computerPlays();
   }
 
   // Adds color to pattern sequence
@@ -81,18 +78,24 @@
     return colors[random];
   }
 
-  // Cycles through sequence recursively, passing it the current index of the pattern
+  // Loops through the sequence pattern array, 
   function playSequence() {
     return new Promise((resolve) => {
-      for (let i = 1; i <= state.pattern.length; i += 1) {
-        setTimeout(() => {
-          const color = state.pattern[i - 1];
+      for (let currentIndex = 1; currentIndex <= state.pattern.length; currentIndex += 1) {
+        delay(currentIndex * state.intervalSpeed).then(() => {
+          const color = state.pattern[currentIndex - 1];
           activateButton(color);
-          if (i === (state.pattern.length)) {
+          if (currentIndex === (state.pattern.length)) {
             resolve();
           }
-        }, i * state.intervalSpeed);
+        });
       }
+    });
+  }
+
+  function delay(sec) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, sec);
     })
   }
 
@@ -102,7 +105,7 @@
     playSequence().then(() => {
       updateState({ userTurn: true });
       toggleInteractive();
-    })
+    });
   }
 
 
