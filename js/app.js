@@ -58,7 +58,10 @@
     setInitialState();
     toggleInteractive();
     setCounterDisplay();
-    playSequence();
+    playSequence().then((data) => {
+      updateState({ userTurn: true });
+      toggleInteractive();
+    });
   }
 
   // Adds color to pattern sequence
@@ -85,6 +88,9 @@
         setTimeout(() => {
           const color = state.pattern[i - 1];
           activateButton(color);
+          if (i === (state.pattern.length)) {
+            resolve();
+          }
         }, i * state.intervalSpeed);
       }
     })
