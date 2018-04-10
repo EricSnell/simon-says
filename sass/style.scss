@@ -28,11 +28,12 @@ html {
   padding: 0;
   box-sizing: inherit;
   outline: none;
+  font-family: inherit;
 }
 
 body {
   height: 100%;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Do Hyeon', Arial, sans-serif;
   font-size: 62.5%; // 1rem = 10px
   background: #333;
 }
@@ -169,9 +170,10 @@ body {
     &.active {
       &:after {
         content: 'strict';
+        font-size: 1rem;
         color: var(--btn-strict);
         position: relative;
-        top: 1.7rem;
+        top: 1.9rem;
       }
     }
 
