@@ -180,7 +180,9 @@ body {
 
   &--start {
     background: var(--btn-start);
-    
+  }
+  
+  &--glow {
     &:after {
       content: '';
       display: block;
@@ -194,6 +196,10 @@ body {
       opacity: 1;
       transform: scale(1);
       transition: all .6s;
+    }
+
+    &:hover:after {
+      animation: 0;
     }
   }
 
