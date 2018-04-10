@@ -78,6 +78,13 @@ body {
     width: 100%;
     background: #333;
     height: 3.4rem;
+
+    &:after {
+      content: '\00AE';
+      font-size: 1.5rem;
+      position: relative;
+      top: -8px;
+    }
   }
 
   &__counter {
