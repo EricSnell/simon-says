@@ -70,6 +70,11 @@
   function toggleStrictMode() {
     const toggle = !state.strict;
     updateState({ strict: toggle });
+    if (state.strict) {
+      $strictBtn.classList.add('active');
+    } else {
+      $strictBtn.classList.remove('active');
+    }
   }
 
   function generateRandomColor() {

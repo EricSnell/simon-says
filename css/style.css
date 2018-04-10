@@ -75,7 +75,8 @@ body {
     width: 50%;
     border: none; }
     .game__button:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      opacity: 0.9; }
     .game__button#green {
       background: var(--color-green);
       border-right: .75rem solid #333;
@@ -113,4 +114,10 @@ body {
     background: var(--btn-start); }
   .btn--strict {
     background: var(--btn-strict);
+    position: relative;
     margin: 0 1rem; }
+    .btn--strict.active:after {
+      content: 'strict';
+      color: var(--btn-strict);
+      position: relative;
+      top: 1.7rem; }

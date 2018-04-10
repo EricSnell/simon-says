@@ -97,6 +97,7 @@ body {
 
     &:hover {
       cursor: pointer;
+      opacity: 0.9;
     }
 
     &#green {
@@ -162,6 +163,18 @@ body {
 
   &--strict {
     background: var(--btn-strict);
+    position: relative;
     margin: 0 1rem;
+
+    &.active {
+      &:after {
+        content: 'strict';
+        color: var(--btn-strict);
+        position: relative;
+        top: 1.7rem;
+      }
+    }
+
   }
+
 }
