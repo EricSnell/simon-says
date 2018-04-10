@@ -71,9 +71,10 @@ body {
       top: -8px; }
   .game__feedback {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 8px;
     text-align: center;
-    font-size: 2rem; }
+    font-size: 2rem;
+    height: 2rem; }
   .game__counter {
     margin: 0 auto;
     text-align: center;
