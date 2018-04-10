@@ -6,6 +6,8 @@
   const $startBtn = document.getElementById('start-btn');
   const $strictBtn = document.getElementById('strict-btn');
   const $counter = document.getElementById('counter');
+  const $feedback = document.getElementById('feedback');
+
   let state;
 
   const sounds = {
@@ -58,6 +60,7 @@
     setInitialState();
     toggleInteractive();
     setCounterDisplay();
+    updateFeedback('');
     computerPlays();
   }
 
@@ -141,7 +144,7 @@
       increaseCounter();
       patternFinished = (state.counter >= state.pattern.length);
       if (patternFinished && lastLevel) {
-        gameWon();
+        updateFeedback('You Win!');
       } else if (patternFinished) {
         setNextLevel();
       }
@@ -153,10 +156,6 @@
       updateState({ counter: 0 });
       computerPlays();
     }
-  }
-
-  function gameWon() {
-    console.log('you win!');
   }
 
   // Runs once user has successfully clicked through current pattern sequence
@@ -206,6 +205,10 @@
 
   function updateState(props = {}) {
     state = Object.assign({}, state, props);
+  }
+
+  function updateFeedback(text) {
+    $feedback.innerHTML = text;
   }
 
 })();
