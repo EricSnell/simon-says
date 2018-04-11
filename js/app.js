@@ -58,9 +58,8 @@
 
   function newGame() {
     setInitialState();
+    setInitialDisplay();
     toggleInteractive();
-    setCounterDisplay();
-    updateFeedback('');
     computerPlays();
   }
 
@@ -190,9 +189,6 @@
     };
   }
 
-  function setCounterDisplay() {
-    $counter.innerHTML = state.pattern.length;
-  }
 
   function setInitialState() {
     updateState({
@@ -209,6 +205,16 @@
 
   function updateFeedback(text) {
     $feedback.innerHTML = text;
+  }
+
+  function setCounterDisplay() {
+    $counter.innerHTML = state.pattern.length;
+  }
+
+  function setInitialDisplay() {
+    setCounterDisplay();
+    $startBtn.classList.remove('btn--glow');
+    updateFeedback('');
   }
 
 })();
