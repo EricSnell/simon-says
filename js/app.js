@@ -118,7 +118,7 @@
     }, state.intervalSpeed / 2);
   }
 
-  // Toggles interactivity with the game while sequence and toggles back on when users turn
+  // Toggles interactivity with the game board
   function toggleInteractive() {
     if (state.userTurn) {
       $buttons.addEventListener('click', play);
@@ -133,7 +133,7 @@
     }
   }
 
-  // When player interacts with a button
+  // Runs when user clicks a pattern button
   function play(e) {
     const btn = e.target.value;
     const isCorrect = (btn === state.pattern[state.counter]);
@@ -166,12 +166,13 @@
     computerPlays();
   }
 
+  // Increases the counter by one
   function increaseCounter() {
     const addToCounter = state.counter + 1;
     updateState({ counter: addToCounter });
   }
 
-  // Determines the speed at which the sequence is played back (faster over time)
+  // Determines the speed at which the sequence is played back (gets faster as sequence grows)
   function setSpeed() {
     const pattern = state.pattern.length;
     switch (true) {
