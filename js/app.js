@@ -39,16 +39,19 @@
     });
   }
 
+  // plays sound associated with button color (on mousedown event)
   function playSound(e) {
     const color = e.target.value;
     sounds[color].play();
   }
 
+  // stops sound associated with buton color (on mouseup event)
   function stopSound(e) {
     const color = e.target.value;
     sounds[color].stop();
   }
 
+  // sound to play when incorrect button clicked (stops after .5 seconds)
   function errorSound() {
     sounds.error.play();
     setTimeout(() => {
@@ -79,6 +82,7 @@
     }
   }
 
+  // returns a random button color
   function generateRandomColor() {
     const colors = ['green', 'red', 'yellow', 'blue'];
     const random = Math.floor(Math.random() * colors.length);
@@ -101,6 +105,7 @@
     }
   }
 
+  // deactivates interactivity with the buttons and plays pattern
   function computerPlays() {
     updateState({ userTurn: false });
     toggleInteractive();
@@ -190,7 +195,7 @@
     };
   }
 
-
+  // sets up the initial state of a new game
   function setInitialState() {
     updateState({
       pattern: [generateRandomColor()],
@@ -200,14 +205,17 @@
     });
   }
 
+  // helper function that takes an object of state properties to update
   function updateState(props = {}) {
     state = Object.assign({}, state, props);
   }
 
+  // displays feedback text to the user
   function updateFeedback(text) {
     $feedback.innerHTML = text;
   }
 
+  // updates the counter element value
   function setCounterDisplay() {
     $counter.innerHTML = state.pattern.length;
   }
