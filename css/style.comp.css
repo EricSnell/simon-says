@@ -1,4 +1,5 @@
 :root {
+  --color-bg: #333333;
   --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
   --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
   --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
@@ -27,10 +28,10 @@ body {
   height: 100%;
   font-family: 'Do Hyeon', Arial, sans-serif;
   font-size: 62.5%;
-  background: #333; }
+  background: var(--color-bg); }
 
 .game {
-  border: 1.5rem solid #333;
+  border: 1.5rem solid var(--color-bg);
   width: 35rem;
   height: 35rem;
   margin: 5rem auto 0;
@@ -38,7 +39,7 @@ body {
   border-radius: 100%;
   overflow: hidden; }
   .game__menu {
-    border: 1rem solid #333;
+    border: 1rem solid var(--color-bg);
     width: 15rem;
     height: 15rem;
     position: absolute;
@@ -46,7 +47,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #333;
+    background: var(--color-bg);
     color: #fff;
     border-radius: 10rem;
     padding: 2rem .5rem;
@@ -62,7 +63,7 @@ body {
     text-align: center;
     margin: 8px 0 13px;
     width: 100%;
-    background: #333;
+    background: var(--color-bg);
     height: 3.4rem; }
     .game__header:after {
       content: '\00AE';
@@ -91,26 +92,26 @@ body {
       opacity: 0.9; }
     .game__button#green {
       background: var(--color-green);
-      border-right: .75rem solid #333;
-      border-bottom: .75rem solid #333; }
+      border-right: 0.75rem solid var(--color-bg);
+      border-bottom: 0.75rem solid var(--color-bg); }
       .game__button#green:enabled:active, .game__button#green.active {
         background: var(--color-green-active); }
     .game__button#red {
       background: var(--color-red);
-      border-left: .75rem solid #333;
-      border-bottom: .75rem solid #333; }
+      border-left: 0.75rem solid var(--color-bg);
+      border-bottom: 0.75rem solid var(--color-bg); }
       .game__button#red:enabled:active, .game__button#red.active {
         background: var(--color-red-active); }
     .game__button#yellow {
       background: var(--color-yellow);
-      border-top: .75rem solid #333;
-      border-right: .75rem solid #333; }
+      border-top: 0.75rem solid var(--color-bg);
+      border-right: 0.75rem solid var(--color-bg); }
       .game__button#yellow:enabled:active, .game__button#yellow.active {
         background: var(--color-yellow-active); }
     .game__button#blue {
       background: var(--color-blue);
-      border-top: .75rem solid #333;
-      border-left: .75rem solid #333; }
+      border-top: 0.75rem solid var(--color-bg);
+      border-left: 0.75rem solid var(--color-bg); }
       .game__button#blue:enabled:active, .game__button#blue.active {
         background: var(--color-blue-active); }
 
