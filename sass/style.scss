@@ -13,10 +13,11 @@
 
   --btn-start: #50D45C;
   --btn-strict: #F02821;
+
 }
 
-// V2 style as Google Chrome logo :D 
-
+// BREAKPOINTS
+$bp-small: 37.5em;  // 600px
 
 html {
   height: 100%;
@@ -43,12 +44,18 @@ body {
 
 .game {
   border: 1.5rem solid var(--color-bg);
-  width: 35rem;
+  max-width: 35rem;
   height: 35rem;
   margin: 5rem auto 0;
   position: relative;
   border-radius: 100%;
   overflow: hidden;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
 
 
   &__menu {
@@ -71,6 +78,17 @@ body {
     background-repeat: no-repeat;
     background-size: 14.5rem;
     background-position: 0 470%;
+
+    @media only screen and (max-width: $bp-small) {
+      position: static;
+      padding: 0 1rem;
+      border-radius: 0;
+      background: none;
+      transform: translate(0%, 0%);
+      margin: 0 auto;
+      width: 100%;
+      height: 20rem;
+    }
   }
 
   &__header {
@@ -87,6 +105,11 @@ body {
       position: relative;
       top: -8px;
     }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
   }
 
   &__feedback {
@@ -101,6 +124,11 @@ body {
     margin: 0 auto;
     text-align: center;
     font-size: 2rem;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      font-size: 3rem;
+    }
   }
 
   &__buttons {
@@ -171,15 +199,21 @@ body {
   border-radius: 10rem;
   transition: all .1s;
 
+  @media only screen and (max-width: $bp-small) {
+    width: 50%;
+    height: 3rem;
+    border-radius: 10rem;
+  }
+  
   &:active {
     transform: scale(0.95);
   }
-
+  
   &:hover {
     cursor: pointer;
     opacity: 0.8;
   }
-
+  
   &--start {
     background: var(--btn-start);
   }
@@ -198,18 +232,22 @@ body {
       opacity: 1;
       transform: scale(1);
       transition: all .6s;
-    }
 
+      @media only screen and (max-width: $bp-small) {
+        animation: none;
+      }
+    }
+    
     &:hover:after {
       animation: 0;
     }
   }
-
+  
   &--strict {
     background: var(--btn-strict);
     position: relative;
     margin: 0 1rem;
-
+    
     &.active {
       &:after {
         content: 'strict';
@@ -220,6 +258,9 @@ body {
       }
     }
 
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+    }
   }
 }
 
@@ -228,7 +269,7 @@ body {
     transform: scale(1);
     opacity: 1;
   }
-
+  
   100% {
     transform: scale(1.5);
     opacity: 0;
