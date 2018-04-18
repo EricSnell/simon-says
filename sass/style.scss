@@ -80,14 +80,10 @@ body {
     background-position: 0 470%;
 
     @media only screen and (max-width: $bp-small) {
-      position: static;
-      padding: 0 1rem;
-      border-radius: 0;
-      background: none;
-      transform: translate(0%, 0%);
-      margin: 0 auto;
       width: 100%;
+      background: var(--color-bg);
       height: 20rem;
+      padding-top: 0;
     }
   }
 
@@ -96,7 +92,6 @@ body {
     text-align: center;
     margin: 8px 0 13px;
     width: 100%;
-    background: var(--color-bg);
     height: 3.4rem;
 
     &:after {
@@ -108,18 +103,10 @@ body {
 
     @media only screen and (max-width: $bp-small) {
       font-size: 5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2.5rem;
     }
   }
-
-  &__feedback {
-    width: 100%;
-    margin-top: 8px;
-    text-align: center;
-    font-size: 2rem;
-    height: 2rem;
-  }
-
+  
   &__counter {
     margin: 0 auto;
     text-align: center;
@@ -129,6 +116,26 @@ body {
       width: 100%;
       font-size: 3rem;
     }
+  }
+
+  &__menu-btns {
+    width: 5.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-small) {
+      margin: 0 auto 1rem;
+      width: 10rem;
+    }
+  }
+
+  &__feedback {
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 2rem;
+    height: 2rem;
   }
 
   &__buttons {
@@ -200,9 +207,8 @@ body {
   transition: all .1s;
 
   @media only screen and (max-width: $bp-small) {
-    width: 50%;
+    width: 3rem;
     height: 3rem;
-    border-radius: 10rem;
   }
   
   &:active {
@@ -234,7 +240,8 @@ body {
       transition: all .6s;
 
       @media only screen and (max-width: $bp-small) {
-        animation: none;
+        width: 3rem;
+        height: 3rem;
       }
     }
     
@@ -246,15 +253,15 @@ body {
   &--strict {
     background: var(--btn-strict);
     position: relative;
-    margin: 0 1rem;
     
     &.active {
       &:after {
         content: 'strict';
         font-size: 13px;
         color: var(--btn-strict);
-        position: relative;
-        top: 1.7rem;
+        position: absolute;
+        top: 2.3rem;
+        right: 0;
       }
     }
 
