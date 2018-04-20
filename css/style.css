@@ -114,6 +114,9 @@ body {
   .game__button {
     width: 50%;
     border: none; }
+    @media only screen and (max-width: 37.5em) {
+      .game__button {
+        border-radius: 10rem; } }
     .game__button:hover {
       cursor: pointer;
       opacity: 0.9; }

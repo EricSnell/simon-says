@@ -147,6 +147,11 @@ body {
   &__button {
     width: 50%;
     border: none;
+    
+
+    @media only screen and (max-width: $bp-small) {
+      border-radius: 10rem;
+    }
 
     &:hover {
       cursor: pointer;
