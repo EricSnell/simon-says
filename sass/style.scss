@@ -267,6 +267,11 @@ body {
         position: absolute;
         top: 2.3rem;
         right: 0;
+
+        @media only screen and (max-width: $bp-small) {
+          top: 3.2rem;
+          left: 0;
+        }
       }
     }
 
