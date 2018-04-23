@@ -1,299 +1,294 @@
-// :root {
-//   --color-bg: #222;
+:root {
+  --color-bg: #222;
 
-//   --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
-//   --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
-//   --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
-//   --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
+  --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
+  --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
+  --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
 
-//   --color-green: rgb(75, 122, 81);
-//   --color-red: rgb(165, 43, 41);
-//   --color-yellow: rgb(177, 173, 70);
-//   --color-blue: rgb(41, 105, 158);
+  --color-green: rgb(75, 122, 81);
+  --color-red: rgb(165, 43, 41);
+  --color-yellow: rgb(177, 173, 70);
+  --color-blue: rgb(41, 105, 158);
 
-//   --btn-start: #50D45C;
-//   --btn-strict: #F02821;
+  --btn-start: #50D45C;
+  --btn-strict: #F02821;
 
-// }
+}
 
-// // BREAKPOINTS
-// $bp-small: 37.5em;  // 600px
+// BREAKPOINTS
+$bp-small: 37.5em;  // 600px
 
-// html {
-//   height: 100%;
-//   box-sizing: border-box;
-// }
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
 
-// *,
-// *:before,
-// *:after {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: inherit;
-//   outline: none;
-//   font-family: inherit;
-// }
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  outline: none;
+  font-family: inherit;
+}
 
-// body {
-//   height: 100%;
-//   font-family: 'Do Hyeon', Arial, sans-serif;
-//   font-size: 62.5%; // 1rem = 10px
-//   background: var(--color-bg);
-// }
-
-
-// .game {
-//   border: 1.5rem solid var(--color-bg);
-//   max-width: 35rem;
-//   height: 35rem;
-//   margin: 5rem auto 0;
-//   position: relative;
-//   border-radius: 100%;
-//   overflow: hidden;
-
-//   @media only screen and (max-width: $bp-small) {
-//     margin-top: 0;
-//     border-radius: 0;
-//     overflow: visible;
-//   }
+body {
+  height: 100%;
+  font-family: 'Do Hyeon', Arial, sans-serif;
+  font-size: 62.5%; // 1rem = 10px
+  background: var(--color-bg);
+}
 
 
-//   &__menu {
-//     border: 1rem solid var(--color-bg);
-//     width: 15rem;
-//     height: 15rem;
-//     position: absolute;
-//     z-index: 10;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     background: var(--color-bg);
-//     color: #fff;
-//     border-radius: 10rem;
-//     padding: 2rem .5rem;
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: top;
-//     background-image: url('http://www.clker.com/cliparts/c/c/2/a/1194989366182291164pattern-dots-square-grid-02.svg.med.png');
-//     background-repeat: no-repeat;
-//     background-size: 14.5rem;
-//     background-position: 0 470%;
+.game {
+  border: 1.5rem solid var(--color-bg);
+  max-width: 35rem;
+  height: 35rem;
+  margin: 5rem auto 0;
+  position: relative;
+  border-radius: 100%;
+  overflow: hidden;
 
-//     @media only screen and (max-width: $bp-small) {
-//       width: 100%;
-//       background: var(--color-bg);
-//       height: 20rem;
-//       padding-top: 0;
-//     }
-//   }
+  @media only screen and (max-width: $bp-small) {
+    margin-top: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
 
-//   &__header {
-//     font-size: 3.5rem;
-//     text-align: center;
-//     margin: 8px 0 13px;
-//     width: 100%;
-//     height: 3.4rem;
 
-//     &:after {
-//       content: '\00AE';
-//       font-size: 1.5rem;
-//       position: relative;
-//       top: -8px;
-//     }
+  &__menu {
+    border: 1rem solid var(--color-bg);
+    width: 15rem;
+    height: 15rem;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--color-bg);
+    color: #fff;
+    border-radius: 10rem;
+    padding: 2rem .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: top;
+    background-image: url('http://www.clker.com/cliparts/c/c/2/a/1194989366182291164pattern-dots-square-grid-02.svg.med.png');
+    background-repeat: no-repeat;
+    background-size: 14.5rem;
+    background-position: 0 470%;
 
-//     @media only screen and (max-width: $bp-small) {
-//       font-size: 5rem;
-//       margin-bottom: 2.5rem;
-//     }
-//   }
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      background: var(--color-bg);
+      height: 20rem;
+      padding-top: 0;
+    }
+  }
+
+  &__header {
+    font-size: 3.5rem;
+    text-align: center;
+    margin: 8px 0 13px;
+    width: 100%;
+    height: 3.4rem;
+
+    &:after {
+      content: '\00AE';
+      font-size: 1.5rem;
+      position: relative;
+      top: -8px;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 5rem;
+      margin-bottom: 2.5rem;
+    }
+  }
   
-//   &__counter {
-//     margin: 0 auto;
-//     text-align: center;
-//     font-size: 2rem;
+  &__counter {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
 
-//     @media only screen and (max-width: $bp-small) {
-//       width: 100%;
-//       font-size: 3rem;
-//     }
-//   }
+    @media only screen and (max-width: $bp-small) {
+      width: 100%;
+      font-size: 3rem;
+    }
+  }
 
-//   &__menu-btns {
-//     width: 5.5rem;
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
+  &__menu-btns {
+    width: 5.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
-//     @media only screen and (max-width: $bp-small) {
-//       margin: 0 auto 1rem;
-//       width: 10rem;
-//     }
-//   }
+    @media only screen and (max-width: $bp-small) {
+      margin: 0 auto 1rem;
+      width: 10rem;
+    }
+  }
 
-//   &__feedback {
-//     width: 100%;
-//     margin-top: 8px;
-//     text-align: center;
-//     font-size: 2rem;
-//     height: 2rem;
-//   }
+  &__feedback {
+    width: 100%;
+    margin-top: 8px;
+    text-align: center;
+    font-size: 2rem;
+    height: 2rem;
+  }
 
-//   &__buttons {
-//     height: 100%;
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
+  &__buttons {
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-//   &__button {
-//     width: 50%;
-//     border: none;
+  &__button {
+    width: 50%;
+    border: none;
     
 
-//     @media only screen and (max-width: $bp-small) {
-//       border-radius: 10rem;
-//     }
+    @media only screen and (max-width: $bp-small) {
+      border-radius: 10rem;
+    }
 
-//     &:hover {
-//       cursor: pointer;
-//       opacity: 0.9;
-//     }
+    &:hover {
+      cursor: pointer;
+      opacity: 0.9;
+    }
 
-//     &#green {
-//       background: var(--color-green);
-//       border-right: .75rem solid var(--color-bg);
-//       border-bottom: .75rem solid var(--color-bg);
+    &#green {
+      background: var(--color-green);
+      border-right: .75rem solid var(--color-bg);
+      border-bottom: .75rem solid var(--color-bg);
       
-//       &:enabled:active,
-//       &.active {
-//         background: var(--color-green-active);   
-//       }
-//     }
+      &:enabled:active,
+      &.active {
+        background: var(--color-green-active);   
+      }
+    }
     
-//     &#red {
-//       background: var(--color-red);
-//       border-left: .75rem solid var(--color-bg);
-//       border-bottom: .75rem solid var(--color-bg);
+    &#red {
+      background: var(--color-red);
+      border-left: .75rem solid var(--color-bg);
+      border-bottom: .75rem solid var(--color-bg);
       
-//       &:enabled:active,
-//       &.active {
-//         background: var(--color-red-active);
-//       }
-//     }
+      &:enabled:active,
+      &.active {
+        background: var(--color-red-active);
+      }
+    }
     
-//     &#yellow {
-//       background: var(--color-yellow);
-//       border-top: .75rem solid var(--color-bg);
-//       border-right: .75rem solid var(--color-bg);
+    &#yellow {
+      background: var(--color-yellow);
+      border-top: .75rem solid var(--color-bg);
+      border-right: .75rem solid var(--color-bg);
       
-//       &:enabled:active,
-//       &.active {
-//         background: var(--color-yellow-active);
-//       }
-//     }
+      &:enabled:active,
+      &.active {
+        background: var(--color-yellow-active);
+      }
+    }
     
-//     &#blue {
-//       background: var(--color-blue);
-//       border-top: .75rem solid var(--color-bg);
-//       border-left: .75rem solid var(--color-bg);
+    &#blue {
+      background: var(--color-blue);
+      border-top: .75rem solid var(--color-bg);
+      border-left: .75rem solid var(--color-bg);
       
-//       &:enabled:active,
-//       &.active {
-//         background: var(--color-blue-active);
-//       }
-//     }
-//   }
-// }
+      &:enabled:active,
+      &.active {
+        background: var(--color-blue-active);
+      }
+    }
+  }
+}
 
-// .btn {
-//   border: none;
-//   width: 2rem;
-//   height: 2rem;
-//   border-radius: 10rem;
-//   transition: all .1s;
+.btn {
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10rem;
+  transition: all .1s;
 
-//   @media only screen and (max-width: $bp-small) {
-//     width: 3rem;
-//     height: 3rem;
-//   }
+  @media only screen and (max-width: $bp-small) {
+    width: 3rem;
+    height: 3rem;
+  }
   
-//   &:active {
-//     transform: scale(0.95);
-//   }
+  &:active {
+    transform: scale(0.95);
+  }
   
-//   &:hover {
-//     cursor: pointer;
-//     opacity: 0.8;
-//   }
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
   
-//   &--start {
-//     background: var(--btn-start);
-//   }
+  &--start {
+    background: var(--btn-start);
+  }
   
-//   &--glow {
-//     &:after {
-//       content: '';
-//       display: block;
-//       width: 2rem;
-//       height: 2rem;
-//       border-radius: 10rem;
-//       position: relative;
-//       z-index: -1;
-//       background: var(--btn-start);
-//       animation: glow 1.5s infinite;
-//       opacity: 1;
-//       transform: scale(1);
-//       transition: all .6s;
+  &--glow {
+    &:after {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 10rem;
+      position: relative;
+      z-index: -1;
+      background: var(--btn-start);
+      animation: glow 1.5s infinite;
+      opacity: 1;
+      transform: scale(1);
+      transition: all .6s;
 
-//       @media only screen and (max-width: $bp-small) {
-//         width: 3rem;
-//         height: 3rem;
-//       }
-//     }
+      @media only screen and (max-width: $bp-small) {
+        width: 3rem;
+        height: 3rem;
+      }
+    }
     
-//     &:hover:after {
-//       animation: 0;
-//     }
-//   }
+    &:hover:after {
+      animation: 0;
+    }
+  }
   
-//   &--strict {
-//     background: var(--btn-strict);
-//     position: relative;
+  &--strict {
+    background: var(--btn-strict);
+    position: relative;
     
-//     &.active {
-//       &:after {
-//         content: 'strict';
-//         font-size: 13px;
-//         color: var(--btn-strict);
-//         position: absolute;
-//         top: 2.3rem;
-//         right: 0;
+    &.active {
+      &:after {
+        content: 'strict';
+        font-size: 13px;
+        color: var(--btn-strict);
+        position: absolute;
+        top: 2.3rem;
+        right: 0;
 
-//         @media only screen and (max-width: $bp-small) {
-//           top: 3.2rem;
-//           left: 0;
-//         }
-//       }
-//     }
+        @media only screen and (max-width: $bp-small) {
+          top: 3.2rem;
+          left: 0;
+        }
+      }
+    }
 
-//     @media only screen and (max-width: $bp-small) {
-//       margin: 0;
-//     }
-//   }
-// }
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+    }
+  }
+}
 
-// @keyframes glow {
-//   0% {
-//     transform: scale(1);
-//     opacity: 1;
-//   }
+@keyframes glow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
   
-//   100% {
-//     transform: scale(1.5);
-//     opacity: 0;
-//   }
-// }
-
-
-
-/* STYLING 2 */
-
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
