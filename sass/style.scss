@@ -139,11 +139,18 @@ body {
   &__buttons {
     height: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    height: 48%;
   }
 
   &__button {
-    width: 50%;
+    width: 48%;
     border-radius: 1rem;
 
     &:hover {

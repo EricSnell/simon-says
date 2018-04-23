@@ -106,9 +106,14 @@ body {
   .game__buttons {
     height: 100%;
     display: flex;
-    flex-wrap: wrap; }
+    flex-direction: column;
+    justify-content: space-between; }
+  .game__row {
+    display: flex;
+    justify-content: space-between;
+    height: 48%; }
   .game__button {
-    width: 50%;
+    width: 48%;
     border-radius: 1rem; }
     .game__button:hover {
       cursor: pointer; }
