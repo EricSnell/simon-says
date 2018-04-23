@@ -27,17 +27,13 @@ html {
 body {
   height: 100%;
   font-family: 'Do Hyeon', Arial, sans-serif;
-  font-size: 62.5%;
-  background: var(--color-bg); }
+  font-size: 62.5%; }
 
 .game {
-  border: 1.5rem solid var(--color-bg);
   max-width: 35rem;
   height: 35rem;
   margin: 5rem auto 0;
-  position: relative;
-  border-radius: 100%;
-  overflow: hidden; }
+  position: relative; }
   @media only screen and (max-width: 37.5em) {
     .game {
       margin-top: 0;
@@ -113,35 +109,27 @@ body {
     flex-wrap: wrap; }
   .game__button {
     width: 50%;
-    border: none; }
-    @media only screen and (max-width: 37.5em) {
-      .game__button {
-        border-radius: 10rem; } }
+    border-radius: 1rem; }
     .game__button:hover {
-      cursor: pointer;
-      opacity: 0.9; }
+      cursor: pointer; }
     .game__button#green {
       background: var(--color-green);
-      border-right: 0.75rem solid var(--color-bg);
-      border-bottom: 0.75rem solid var(--color-bg); }
+      border-top-left-radius: 100%; }
       .game__button#green:enabled:active, .game__button#green.active {
         background: var(--color-green-active); }
     .game__button#red {
       background: var(--color-red);
-      border-left: 0.75rem solid var(--color-bg);
-      border-bottom: 0.75rem solid var(--color-bg); }
+      border-top-right-radius: 100%; }
       .game__button#red:enabled:active, .game__button#red.active {
         background: var(--color-red-active); }
     .game__button#yellow {
       background: var(--color-yellow);
-      border-top: 0.75rem solid var(--color-bg);
-      border-right: 0.75rem solid var(--color-bg); }
+      border-bottom-left-radius: 100%; }
       .game__button#yellow:enabled:active, .game__button#yellow.active {
         background: var(--color-yellow-active); }
     .game__button#blue {
       background: var(--color-blue);
-      border-top: 0.75rem solid var(--color-bg);
-      border-left: 0.75rem solid var(--color-bg); }
+      border-bottom-right-radius: 100%; }
       .game__button#blue:enabled:active, .game__button#blue.active {
         background: var(--color-blue-active); }
 

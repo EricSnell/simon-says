@@ -38,18 +38,16 @@ body {
   height: 100%;
   font-family: 'Do Hyeon', Arial, sans-serif;
   font-size: 62.5%; // 1rem = 10px
-  background: var(--color-bg);
+  //background: var(--color-bg);
 }
 
 
 .game {
-  border: 1.5rem solid var(--color-bg);
   max-width: 35rem;
   height: 35rem;
   margin: 5rem auto 0;
   position: relative;
-  border-radius: 100%;
-  overflow: hidden;
+
 
   @media only screen and (max-width: $bp-small) {
     margin-top: 0;
@@ -146,22 +144,15 @@ body {
 
   &__button {
     width: 50%;
-    border: none;
-    
-
-    @media only screen and (max-width: $bp-small) {
-      border-radius: 10rem;
-    }
+    border-radius: 1rem;
 
     &:hover {
       cursor: pointer;
-      opacity: 0.9;
     }
 
     &#green {
       background: var(--color-green);
-      border-right: .75rem solid var(--color-bg);
-      border-bottom: .75rem solid var(--color-bg);
+      border-top-left-radius: 100%;
       
       &:enabled:active,
       &.active {
@@ -171,8 +162,7 @@ body {
     
     &#red {
       background: var(--color-red);
-      border-left: .75rem solid var(--color-bg);
-      border-bottom: .75rem solid var(--color-bg);
+      border-top-right-radius: 100%;
       
       &:enabled:active,
       &.active {
@@ -182,8 +172,7 @@ body {
     
     &#yellow {
       background: var(--color-yellow);
-      border-top: .75rem solid var(--color-bg);
-      border-right: .75rem solid var(--color-bg);
+      border-bottom-left-radius: 100%;
       
       &:enabled:active,
       &.active {
@@ -193,8 +182,7 @@ body {
     
     &#blue {
       background: var(--color-blue);
-      border-top: .75rem solid var(--color-bg);
-      border-left: .75rem solid var(--color-bg);
+      border-bottom-right-radius: 100%;
       
       &:enabled:active,
       &.active {
