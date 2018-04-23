@@ -1,15 +1,15 @@
 :root {
-  --color-bg: #222;
+  --color-bg: #000;
 
   --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
   --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
   --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
   --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
 
-  --color-green: rgb(75, 122, 81);
-  --color-red: rgb(165, 43, 41);
-  --color-yellow: rgb(177, 173, 70);
-  --color-blue: rgb(41, 105, 158);
+  --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
+  --color-red: linear-gradient(to top right, #F54F37, #F62722);
+  --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
+  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
 
   --btn-start: #50D45C;
   --btn-strict: #F02821;
@@ -73,13 +73,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: top;
-
-    @media only screen and (max-width: $bp-small) {
-      width: 100%;
-      background: var(--color-bg);
-      height: 20rem;
-      padding-top: 0;
-    }
   }
 
   &__header {
@@ -95,22 +88,12 @@ body {
       position: relative;
       top: -8px;
     }
-
-    @media only screen and (max-width: $bp-small) {
-      font-size: 5rem;
-      margin-bottom: 2.5rem;
-    }
   }
   
   &__counter {
     margin: 0 auto;
     text-align: center;
     font-size: 2rem;
-
-    @media only screen and (max-width: $bp-small) {
-      width: 100%;
-      font-size: 3rem;
-    }
   }
 
   &__menu-btns {
@@ -118,11 +101,6 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    @media only screen and (max-width: $bp-small) {
-      margin: 0 auto 1rem;
-      width: 10rem;
-    }
   }
 
   &__feedback {
@@ -154,6 +132,7 @@ body {
 
     &:hover {
       cursor: pointer;
+      transform: scale(1.03);
     }
 
     &:active {
@@ -208,11 +187,6 @@ body {
   height: 2rem;
   border-radius: 10rem;
   transition: all .1s;
-
-  @media only screen and (max-width: $bp-small) {
-    width: 3rem;
-    height: 3rem;
-  }
   
   &:active {
     transform: scale(0.95);
@@ -241,11 +215,6 @@ body {
       opacity: 1;
       transform: scale(1);
       transition: all .6s;
-
-      @media only screen and (max-width: $bp-small) {
-        width: 3rem;
-        height: 3rem;
-      }
     }
     
     &:hover:after {
@@ -265,16 +234,7 @@ body {
         position: absolute;
         top: 2.3rem;
         right: 0;
-
-        @media only screen and (max-width: $bp-small) {
-          top: 3.2rem;
-          left: 0;
-        }
       }
-    }
-
-    @media only screen and (max-width: $bp-small) {
-      margin: 0;
     }
   }
 }

@@ -1,13 +1,13 @@
 :root {
-  --color-bg: #222;
+  --color-bg: #000;
   --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
   --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
   --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
   --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
-  --color-green: #4b7a51;
-  --color-red: #a52b29;
-  --color-yellow: #b1ad46;
-  --color-blue: #29699e;
+  --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
+  --color-red: linear-gradient(to top right, #F54F37, #F62722);
+  --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
+  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
   --btn-start: #50D45C;
   --btn-strict: #F02821; }
 
@@ -57,12 +57,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: top; }
-    @media only screen and (max-width: 37.5em) {
-      .game__menu {
-        width: 100%;
-        background: var(--color-bg);
-        height: 20rem;
-        padding-top: 0; } }
   .game__header {
     font-size: 3.5rem;
     text-align: center;
@@ -74,27 +68,15 @@ body {
       font-size: 1.5rem;
       position: relative;
       top: -8px; }
-    @media only screen and (max-width: 37.5em) {
-      .game__header {
-        font-size: 5rem;
-        margin-bottom: 2.5rem; } }
   .game__counter {
     margin: 0 auto;
     text-align: center;
     font-size: 2rem; }
-    @media only screen and (max-width: 37.5em) {
-      .game__counter {
-        width: 100%;
-        font-size: 3rem; } }
   .game__menu-btns {
     width: 5.5rem;
     display: flex;
     justify-content: space-around;
     align-items: center; }
-    @media only screen and (max-width: 37.5em) {
-      .game__menu-btns {
-        margin: 0 auto 1rem;
-        width: 10rem; } }
   .game__feedback {
     width: 100%;
     margin-top: 8px;
@@ -116,7 +98,8 @@ body {
     border: none;
     transition: transform .1s; }
     .game__button:hover {
-      cursor: pointer; }
+      cursor: pointer;
+      transform: scale(1.03); }
     .game__button:active {
       transform: scale(0.93); }
     .game__button#green {
@@ -146,10 +129,6 @@ body {
   height: 2rem;
   border-radius: 10rem;
   transition: all .1s; }
-  @media only screen and (max-width: 37.5em) {
-    .btn {
-      width: 3rem;
-      height: 3rem; } }
   .btn:active {
     transform: scale(0.95); }
   .btn:hover {
@@ -170,10 +149,6 @@ body {
     opacity: 1;
     transform: scale(1);
     transition: all .6s; }
-    @media only screen and (max-width: 37.5em) {
-      .btn--glow:after {
-        width: 3rem;
-        height: 3rem; } }
   .btn--glow:hover:after {
     animation: 0; }
   .btn--strict {
@@ -186,13 +161,6 @@ body {
       position: absolute;
       top: 2.3rem;
       right: 0; }
-      @media only screen and (max-width: 37.5em) {
-        .btn--strict.active:after {
-          top: 3.2rem;
-          left: 0; } }
-    @media only screen and (max-width: 37.5em) {
-      .btn--strict {
-        margin: 0; } }
 
 @keyframes glow {
   0% {
