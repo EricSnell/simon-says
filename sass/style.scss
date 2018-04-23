@@ -38,7 +38,7 @@ body {
   height: 100%;
   font-family: 'Do Hyeon', Arial, sans-serif;
   font-size: 62.5%; // 1rem = 10px
-  //background: var(--color-bg);
+  background: var(--color-bg);
 }
 
 
@@ -66,16 +66,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--color-bg);
+    box-shadow: 0 0 4rem rgba(0, 0, 0, 0.7);
     color: #fff;
     border-radius: 10rem;
     padding: 2rem .5rem;
     display: flex;
     flex-wrap: wrap;
     align-items: top;
-    background-image: url('http://www.clker.com/cliparts/c/c/2/a/1194989366182291164pattern-dots-square-grid-02.svg.med.png');
-    background-repeat: no-repeat;
-    background-size: 14.5rem;
-    background-position: 0 470%;
 
     @media only screen and (max-width: $bp-small) {
       width: 100%;
@@ -152,9 +149,15 @@ body {
   &__button {
     width: 48%;
     border-radius: 1rem;
+    border: none;
+    transition: transform .1s;
 
     &:hover {
       cursor: pointer;
+    }
+
+    &:active {
+      transform: scale(0.93);
     }
 
     &#green {

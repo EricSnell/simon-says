@@ -27,7 +27,8 @@ html {
 body {
   height: 100%;
   font-family: 'Do Hyeon', Arial, sans-serif;
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  background: var(--color-bg); }
 
 .game {
   max-width: 35rem;
@@ -49,16 +50,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: var(--color-bg);
+    box-shadow: 0 0 4rem rgba(0, 0, 0, 0.7);
     color: #fff;
     border-radius: 10rem;
     padding: 2rem .5rem;
     display: flex;
     flex-wrap: wrap;
-    align-items: top;
-    background-image: url("http://www.clker.com/cliparts/c/c/2/a/1194989366182291164pattern-dots-square-grid-02.svg.med.png");
-    background-repeat: no-repeat;
-    background-size: 14.5rem;
-    background-position: 0 470%; }
+    align-items: top; }
     @media only screen and (max-width: 37.5em) {
       .game__menu {
         width: 100%;
@@ -114,9 +112,13 @@ body {
     height: 48%; }
   .game__button {
     width: 48%;
-    border-radius: 1rem; }
+    border-radius: 1rem;
+    border: none;
+    transition: transform .1s; }
     .game__button:hover {
       cursor: pointer; }
+    .game__button:active {
+      transform: scale(0.93); }
     .game__button#green {
       background: var(--color-green);
       border-top-left-radius: 100%; }
