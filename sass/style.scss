@@ -1,15 +1,15 @@
 :root {
-  --color-bg: #000;
+  --color-bg: #191919;
 
-  --color-green-active: linear-gradient(to bottom right, #41CC50, #69DC79);
-  --color-red-active: linear-gradient(to top right, #F54F37, #F62722);
-  --color-yellow-active: linear-gradient(to top right, #FEEE40, #FDF960);
-  --color-blue-active: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green-active: #6EDE7B;
+  --color-red-active: #FFA39E;
+  --color-yellow-active: #FFE957;
+  --color-blue-active: #2499FF;
 
-  --color-green: linear-gradient(to bottom right, #41CC50, #69DC79);
-  --color-red: linear-gradient(to top right, #F54F37, #F62722);
-  --color-yellow: linear-gradient(to top right, #FEEE40, #FDF960);
-  --color-blue: linear-gradient(to bottom right, #1DACED, #1582DE);
+  --color-green: #69DC79;
+  --color-red: #F62722;
+  --color-yellow: #FDF960;
+  --color-blue: #1582DE;
 
   --btn-start: #50D45C;
   --btn-strict: #F02821;
@@ -128,15 +128,11 @@ body {
     width: 48%;
     border-radius: 1rem;
     border: none;
-    transition: transform .1s;
+    transition: all .2s;
 
     &:hover {
       cursor: pointer;
       transform: scale(1.03);
-    }
-
-    &:active {
-      transform: scale(0.93);
     }
 
     &#green {
@@ -145,7 +141,15 @@ body {
       
       &:enabled:active,
       &.active {
-        background: var(--color-green-active);   
+        background: var(--color-green-active);
+        box-shadow: 0 0 10px #FFF, 
+                    0 0 20px #FFF, 
+                    0 0 30px #FFF,
+                    0 0 40px #2ECC40, 
+                    0 0 70px #2ECC40, 
+                    0 0 80px #2ECC40, 
+                    0 0 100px #2ECC40, 
+                    0 0 150px #2ECC40 
       }
     }
     
@@ -156,6 +160,14 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-red-active);
+        box-shadow: 0 0 10px #FFF, 
+                    0 0 20px #FFF, 
+                    0 0 30px #FFF,
+                    0 0 40px #FF4136, 
+                    0 0 70px #FF4136, 
+                    0 0 80px #FF4136, 
+                    0 0 100px #FF4136, 
+                    0 0 150px #FF4136
       }
     }
     
@@ -166,6 +178,14 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-yellow-active);
+        box-shadow: 0 0 10px #FFF, 
+                    0 0 20px #FFF, 
+                    0 0 30px #FFF,
+                    0 0 40px #FFDC00, 
+                    0 0 70px #FFDC00, 
+                    0 0 80px #FFDC00, 
+                    0 0 100px #FFDC00, 
+                    0 0 150px #FFDC00
       }
     }
     
@@ -176,6 +196,14 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-blue-active);
+        box-shadow: 0 0 10px #FFF, 
+                    0 0 20px #FFF, 
+                    0 0 30px #FFF,
+                    0 0 40px #0074D9, 
+                    0 0 70px #0074D9, 
+                    0 0 80px #0074D9, 
+                    0 0 100px #0074D9, 
+                    0 0 150px #0074D9
       }
     }
   }
