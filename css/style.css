@@ -101,10 +101,10 @@ body {
     width: 48%;
     border-radius: 1rem;
     border: none;
-    transition: all .2s; }
+    transition: transform .2s; }
     .game__button:hover {
       cursor: pointer;
-      transform: scale(1.03); }
+      transform: scale(1.02); }
     .game__button#green {
       background: var(--color-green);
       border-top-left-radius: 100%; }
