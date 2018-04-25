@@ -1,22 +1,22 @@
 :root {
   --color-bg: #191919;
 
-  --color-green: #50a259;
-  --color-red: #ed352b;
+  --color-green:  #50a259;
+  --color-red:    #ed352b;
   --color-yellow: #f2d51c;
-  --color-blue: #006fd0;
+  --color-blue:   #006fd0;
 
-  --color-green-active: #57d766;
-  --color-red-active: #fa766f;
-  --color-yellow-active: #ffe957;
-  --color-blue-active: #2499ff;
+  --color-green-active:   #57d766;
+  --color-red-active:     #fa766f;
+  --color-yellow-active:  #ffe957;
+  --color-blue-active:    #2499ff;
 
-  --color-green-glow: #2ecc40;
-  --color-red-glow: #ff4136;
-  --color-yellow-glow: #ffdc00;
-  --color-blue-glow: #0074d9;
+  --color-green-glow:   #2ecc40;
+  --color-red-glow:     #ff4136;
+  --color-yellow-glow:  #ffdc00;
+  --color-blue-glow:    #0074d9;
 
-  --btn-start: #50d45c;
+  --btn-start:  #50d45c;
   --btn-strict: #f02821;
 }
 
@@ -35,6 +35,8 @@ $bp-small: 37.5em;  // 600px
               0 0 150px $color;
 }
 
+
+/**** GENERAL STYLING / RESET ****/
 html {
   height: 100%;
   box-sizing: border-box;
@@ -57,6 +59,8 @@ body {
   background: var(--color-bg);
 }
 
+
+/**** GAME STYLES ****/
 .game {
   max-width: 35rem;
   height: 35rem;
@@ -245,9 +249,6 @@ body {
     }
   }
 }
-
-
-
 
 /**** ANIMATIONS ****/
 @keyframes glow {

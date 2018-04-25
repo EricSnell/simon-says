@@ -16,6 +16,7 @@
   --btn-strict: #f02821; }
 
 /***** MXINS *****/
+/**** GENERAL STYLING / RESET ****/
 html {
   height: 100%;
   box-sizing: border-box; }
@@ -35,6 +36,7 @@ body {
   font-size: 62.5%;
   background: var(--color-bg); }
 
+/**** GAME STYLES ****/
 .game {
   max-width: 35rem;
   height: 35rem;
