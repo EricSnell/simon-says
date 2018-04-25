@@ -1,19 +1,23 @@
 :root {
   --color-bg: #191919;
 
-  --color-green-active: #57d766;
-  --color-red-active: #fa766f;
-  --color-yellow-active: #FFE957;
-  --color-blue-active: #2499FF;
-
   --color-green: #50a259;
   --color-red: #ed352b;
   --color-yellow: #f2d51c;
   --color-blue: #006fd0;
 
-  --btn-start: #50D45C;
-  --btn-strict: #F02821;
+  --color-green-active: #57d766;
+  --color-red-active: #fa766f;
+  --color-yellow-active: #ffe957;
+  --color-blue-active: #2499ff;
 
+  --color-green-glow: #2ecc40;
+  --color-red-glow: #ff4136;
+  --color-yellow-active: #ffdc00;
+  --color-blue-glow: #0074d9;
+
+  --btn-start: #50d45c;
+  --btn-strict: #f02821;
 }
 
 // BREAKPOINTS
@@ -142,14 +146,7 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-green-active);
-        box-shadow: 0 0 10px #FFF, 
-                    0 0 20px #FFF, 
-                    0 0 30px #FFF,
-                    0 0 40px #2ECC40, 
-                    0 0 70px #2ECC40, 
-                    0 0 80px #2ECC40, 
-                    0 0 100px #2ECC40, 
-                    0 0 150px #2ECC40 
+        @include boxGlow(var(--color-green-glow));
       }
     }
     
@@ -160,14 +157,7 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-red-active);
-        box-shadow: 0 0 10px #FFF, 
-                    0 0 20px #FFF, 
-                    0 0 30px #FFF,
-                    0 0 40px #FF4136, 
-                    0 0 70px #FF4136, 
-                    0 0 80px #FF4136, 
-                    0 0 100px #FF4136, 
-                    0 0 150px #FF4136
+        @include boxGlow(var(--color-red-glow));
       }
     }
     
@@ -178,14 +168,7 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-yellow-active);
-        box-shadow: 0 0 10px #FFF, 
-                    0 0 20px #FFF, 
-                    0 0 30px #FFF,
-                    0 0 40px #FFDC00, 
-                    0 0 70px #FFDC00, 
-                    0 0 80px #FFDC00, 
-                    0 0 100px #FFDC00, 
-                    0 0 150px #FFDC00
+        @include boxGlow(var(--color-yellow-glow));
       }
     }
     
@@ -196,14 +179,7 @@ body {
       &:enabled:active,
       &.active {
         background: var(--color-blue-active);
-        box-shadow: 0 0 10px #FFF, 
-                    0 0 20px #FFF, 
-                    0 0 30px #FFF,
-                    0 0 40px #0074D9, 
-                    0 0 70px #0074D9, 
-                    0 0 80px #0074D9, 
-                    0 0 100px #0074D9, 
-                    0 0 150px #0074D9
+        @include boxGlow(var(--color-blue-glow));
       }
     }
   }
@@ -267,6 +243,10 @@ body {
   }
 }
 
+
+
+
+/**** ANIMATIONS ****/
 @keyframes glow {
   0% {
     transform: scale(1);
@@ -276,5 +256,20 @@ body {
   100% {
     transform: scale(1.5);
     opacity: 0;
+  }
+}
+
+
+
+/***** MXINS *****/
+@mixin boxGlow($color) {
+  box-shadow: 0 0 1rem #fff, 
+              0 0 2rem #fff, 
+              0 0 3rem #fff,
+              0 0 4rem $color, 
+              0 0 7rem $color, 
+              0 0 8rem $color, 
+              0 0 10rem $color, 
+              0 0 15rem $color
   }
 }
