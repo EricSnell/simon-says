@@ -13,7 +13,7 @@
 
   --color-green-glow: #2ecc40;
   --color-red-glow: #ff4136;
-  --color-yellow-active: #ffdc00;
+  --color-yellow-glow: #ffdc00;
   --color-blue-glow: #0074d9;
 
   --btn-start: #50d45c;
@@ -22,6 +22,18 @@
 
 // BREAKPOINTS
 $bp-small: 37.5em;  // 600px
+
+/***** MXINS *****/
+@mixin boxGlow($color) {
+  box-shadow: 0 0 10px #fff, 
+              0 0 20px #fff, 
+              0 0 30px #fff,
+              0 0 40px $color, 
+              0 0 70px $color, 
+              0 0 80px $color, 
+              0 0 100px $color, 
+              0 0 150px $color;
+}
 
 html {
   height: 100%;
@@ -45,20 +57,17 @@ body {
   background: var(--color-bg);
 }
 
-
 .game {
   max-width: 35rem;
   height: 35rem;
   margin: 5rem auto 0;
   position: relative;
 
-
   @media only screen and (max-width: $bp-small) {
     margin-top: 0;
     border-radius: 0;
     overflow: visible;
   }
-
 
   &__menu {
     border: 1rem solid var(--color-bg);
@@ -256,20 +265,5 @@ body {
   100% {
     transform: scale(1.5);
     opacity: 0;
-  }
-}
-
-
-
-/***** MXINS *****/
-@mixin boxGlow($color) {
-  box-shadow: 0 0 1rem #fff, 
-              0 0 2rem #fff, 
-              0 0 3rem #fff,
-              0 0 4rem $color, 
-              0 0 7rem $color, 
-              0 0 8rem $color, 
-              0 0 10rem $color, 
-              0 0 15rem $color
   }
 }
