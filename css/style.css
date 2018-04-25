@@ -1,13 +1,13 @@
 :root {
   --color-bg: #191919;
-  --color-green-active: #6EDE7B;
-  --color-red-active: #FFA39E;
+  --color-green-active: #57d766;
+  --color-red-active: #fa766f;
   --color-yellow-active: #FFE957;
   --color-blue-active: #2499FF;
-  --color-green: #69DC79;
-  --color-red: #F62722;
-  --color-yellow: #FDF960;
-  --color-blue: #1582DE;
+  --color-green: #50a259;
+  --color-red: #ed352b;
+  --color-yellow: #f2d51c;
+  --color-blue: #006fd0;
   --btn-start: #50D45C;
   --btn-strict: #F02821; }
 
