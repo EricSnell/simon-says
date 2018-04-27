@@ -117,10 +117,16 @@
     const btn = document.getElementById(color);
     btn.classList.add('active');
     sounds[color].play();
-    setTimeout(() => {
+    delay(state.intervalSpeed / 2).then(() => {
       btn.classList.remove('active');
       sounds[color].stop();
-    }, state.intervalSpeed / 2);
+    })
+  }
+
+  function delay(ms) {
+    return new Promise(resolve => {
+      setTimeout(resolve, ms);
+    });
   }
 
   // Toggles interactivity with the game board
