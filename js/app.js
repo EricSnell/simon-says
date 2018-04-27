@@ -94,11 +94,11 @@
     if (index < state.pattern.length) {
       updateState({ userTurn: false });
       toggleInteractive();
-      setTimeout(() => {
+      delay(state.intervalSpeed).then(() => {
         const color = state.pattern[index];
         activateButton(color);
         playSequence(index + 1);
-      }, state.intervalSpeed);
+      });
     } else {
       updateState({ userTurn: true });
       toggleInteractive();
