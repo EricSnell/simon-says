@@ -54,9 +54,9 @@
   // sound to play when incorrect button clicked (stops after .5 seconds)
   function errorSound() {
     sounds.error.play();
-    setTimeout(() => {
+    delay(500).then(() => {
       sounds.error.stop()
-    }, 500);
+    });
   }
 
   function newGame() {
