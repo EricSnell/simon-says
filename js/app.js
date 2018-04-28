@@ -26,7 +26,6 @@
 
   setInitialState();
 
-
   function createSound(num) {
     return new Pizzicato.Sound({
       source: 'wave',
