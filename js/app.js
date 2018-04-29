@@ -149,6 +149,9 @@
     const isCorrect = (btn === state.pattern[state.counter]);
     const lastLevel = (state.pattern.length === 20);
     let patternFinished;
+    if (!btn) {
+      return;
+    }
     if (isCorrect) {
       increaseCounter();
       patternFinished = (state.counter >= state.pattern.length);
